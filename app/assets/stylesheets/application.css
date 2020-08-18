@@ -1,0 +1,243 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+.body {
+  font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
+}
+.welcome-page {
+  font-family: inherit;
+  align-items: center;
+  margin-left: 250px;
+  margin-right: 0px;
+  margin-top: 70px;
+}
+.welcome-text {
+  color: #1c1e21;
+  text-align: center;
+}
+.welcome-login-page {
+  display: flex;
+  flex-wrap: wrap;
+}
+.logo {
+  font-size: 50px;
+  color: #187718;
+  text-align: center;
+}
+ .login-page {
+    /* display:block; */
+    position: fixed;
+    align-items: center;
+    margin-left:700px;
+    margin-top: 70px;
+    padding-bottom: 24px;
+    padding-top: 15px;
+    text-align: center;
+    font-family: inherit;
+    /* font-size: 20px; */
+    height: 310px;
+    width: 400px;
+    border: none;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, .1);
+    
+ } 
+ .login-form {
+   box-shadow: 0px 24px 2px -24px gray;
+   /* display: flex; */
+   padding-bottom: 15px;
+  
+ }
+
+ .input-box {
+   padding: 11px;
+   margin: 5px;
+   width: 330px;
+   border-radius: 6px;
+   font-size: 17px;
+   border: 1px solid #dddfe2;
+   vertical-align: middle;
+ }
+ .input-button {
+   padding: 11px;
+   margin: 5px;
+   width: 350px;
+   color: white;
+   font-weight: bolder;
+   border: none;
+   border-radius: 6px;
+   height: 50px;
+   font-size: 20px;
+ }
+ .log-in {
+   background: #1877F2;
+ }
+  .login-errors {
+    font-family: inherit;
+    font-size: 12px;
+    background-color: #be4b49;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(139, 3, 0, .75), 0 1px 10px rgba(0, 0, 0, .35);
+    color: #fff;
+    /* position: relative; */
+    display: block;
+    width: 100px;
+    height: 100px;
+    list-style-type: none;
+    margin-top: 150px;
+    margin-left: 500px;
+
+  }
+
+ input[type="radio"] {
+    
+    line-height: 36px;
+    padding: 0 10px 0 10px;
+    /* width: 100%; */
+ }
+ .radio-container {
+    box-sizing: border-box;
+    color: #1c1e21;
+    display: inline-block;
+    font-family: inherit;
+    font-size: 15px;
+    padding: 0 28px 0 10px;
+    width: 100%;
+ }
+ .create-new-user, .demo-user {
+   margin-top: 15px;
+   width: 220px;
+   font-size: 18px;
+   background: #42B72A;
+ }
+ .sign-up-button {
+   background: #42B72A;
+   margin-top: 23px;
+   width: 200px;
+ }
+
+
+.modal-body {
+  font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
+  border: none;
+}
+
+.sign-up-form {
+  align-items: center;
+  text-align: center;
+}
+
+.sign-up-text {
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 1px;
+  box-shadow: 0px 5px 2px -5px gray;
+}
+
+.sign-up-gender{
+  display: block;
+  color: #606770;
+  font-family: inherit;
+  font-size: 12px;
+  margin-bottom: 0;
+  margin-top: 2px;
+  margin-left: 5px;
+  text-align: left;
+}
+
+.react-responsive-modal-overlay {
+  background: #FFFFFFCC;
+  display: flex;
+  align-items: flex-start;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1000;
+  padding: 1.2rem;
+}
+
+.react-responsive-modal-modal {
+  max-width: 800px;
+  position: relative;
+  padding: 1.2rem;
+  background: #ffffff;
+  background-clip: padding-box;
+  border-radius: 8px;
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.25);
+  margin-top: 150px;
+  margin-left: 400px;
+}
+
+.react-responsive-modal-modalCenter {
+  margin: auto;
+}
+
+.react-responsive-modal-closeButton {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  display: flex;
+}
+
+.logout-button {
+  font-family: inherit;
+  font-size: 14px;
+  background: white;
+  color: gray;
+
+}
+
+.navbar-container {
+  display: flex;
+  /* justify-content: space-around; */
+  flex-wrap: wrap;
+  height: 50px;
+  position: relative;
+  width: 100%;
+  background: #2851A3;
+  padding: 0 10px;
+  margin: 0 0 0 0;
+}
+
+.newsfeed {
+  margin-top:50px;
+}
+
+.navbar-newsfeed-link{
+  background-color:white;
+  color: #2851A3;
+  font-size: 22px;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.user-show-link {
+  color: black;
+  font-family: inherit;
+  font-size:20px;
+  text-decoration: none;
+}
