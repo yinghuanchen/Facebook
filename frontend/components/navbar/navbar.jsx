@@ -16,9 +16,9 @@ class NavBar extends React.Component {
             <div className="navbar-container">
                 <Link to='/newsfeed' className="navbar-newsfeed-link">f</Link>
                 {/* <button className="logout-button" >Log out</button> */}
-                <div class="dropdown">
-                    <button class="dropbtn"><i class="arrow down"></i></button>
-                    <div class="dropdown-content">
+                <div className="dropdown">
+                    <button className="dropbtn"><i className="arrow down"></i></button>
+                    <div className="dropdown-content">
                         <a href="#">Link 1</a>
                         <a className="logout-button" onClick={this.handleLogout}>Log out</a>
                     </div>

@@ -36,6 +36,7 @@
 .dropbtn {
   background-color: #2851A3;
   padding: 16px;
+  border: none;
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -109,3 +110,39 @@
   display: inline-block;
 }
 
+
+.login-errors-div {
+  background: #c51244;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative; 
+  display: inline-block;
+  box-shadow: 1px 1px 1px #aaaaaa;
+  margin-top: 10px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  height: 40px;
+  text-align: center;
+  left: 650px;
+  top: 80px;
+}
+
+.login-errors{
+    list-style: none; 
+    list-style-type: none;
+    list-style-position: inside;
+    margin: 5px;
+}
+
+.login-errors-div:before {
+  content: ''; 
+  width: 0; 
+  height: 0; 
+  border-bottom: 10px solid transparent;
+  border-top: 10px solid transparent;
+  border-right: 10px solid #c51244;
+  left: -10px; 
+  position: absolute; 
+  
+}
