@@ -33,7 +33,7 @@ class LogInForm extends React.Component {
 
     renderErrors() {
         return (
-            <ul >
+            <ul className="login-errors">
                 {this.props.errors.map((error, idx) => (
                     <li key={`${idx}`}>
                         {error}
@@ -66,7 +66,7 @@ class LogInForm extends React.Component {
             </Modal>
         ) : null; 
         const errors = this.props.errors.length !== 0 ? (
-            <div className="login-errors">
+            <div className="login-errors-div">
                 {this.renderErrors()}
             </div>
         ) : null;
@@ -77,25 +77,28 @@ class LogInForm extends React.Component {
                         <h1 className="logo">Facebook</h1>
                         <h2 className="welcome-text">Connecting friends!</h2>
                     </div>
-                    <div className="login-page" >
-                        <form className="login-form" onSubmit={this.handleSubmit}>
-                            <input type="text"
-                                className="input-box"
-                                placeholder="Email"
-                                value={this.state.email}
-                                onChange={this.update('email')} />
-                            <br />
-                            <input type="password"
-                                className="input-box"
-                                placeholder="Password"
-                                value={this.state.password}
-                                onChange={this.update('password')} />
-                            <br />
-                            <button className="input-button log-in">Log In</button>
-                        </form>
-                        <button className="input-button create-new-user" onClick={this.onOpenModal}>Create New Account</button>
-                        <button className="input-button demo-user" onClick={this.handleDemoUser}>Demo User</button>
-                    </div>
+                    <div className="errors-and-login">
+                        <div className="login-page" >
+                            <form className="login-form" onSubmit={this.handleSubmit}>
+                                <input type="text"
+                                    className="input-box"
+                                    placeholder="Email"
+                                    value={this.state.email}
+                                    onChange={this.update('email')} />
+                                <br />
+                                <input type="password"
+                                    className="input-box"
+                                    placeholder="Password"
+                                    value={this.state.password}
+                                    onChange={this.update('password')} />
+                                <br />
+                                <button className="input-button log-in">Log In</button>
+                            </form>
+                            <button className="input-button create-new-user" onClick={this.onOpenModal}>Create New Account</button>
+                            <button className="input-button demo-user" onClick={this.handleDemoUser}>Demo User</button>
+                        </div>
+                        {errors}
+                    </div>    
                 </div>
                 {modal}
             </div>

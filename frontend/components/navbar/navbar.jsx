@@ -15,7 +15,14 @@ class NavBar extends React.Component {
         const display = this.props.currentUser ? (
             <div className="navbar-container">
                 <Link to='/newsfeed' className="navbar-newsfeed-link">f</Link>
-                <button className="logout-button" onClick={this.handleLogout}>Log out</button>
+                {/* <button className="logout-button" >Log out</button> */}
+                <div class="dropdown">
+                    <button class="dropbtn"><i class="arrow down"></i></button>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1</a>
+                        <a className="logout-button" onClick={this.handleLogout}>Log out</a>
+                    </div>
+                </div>
             </div>
         ) : null;
         return (

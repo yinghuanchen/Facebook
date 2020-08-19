@@ -16,210 +16,84 @@
 .body {
   font-family: SFProDisplay-Regular, Helvetica, Arial, sans-serif;
 }
-.welcome-page {
-  font-family: inherit;
-  align-items: center;
-  margin-left: 250px;
-  margin-right: 0px;
-  margin-top: 70px;
-}
-.welcome-text {
-  color: #1c1e21;
-  text-align: center;
-}
-.welcome-login-page {
-  display: flex;
-  flex-wrap: wrap;
-}
-.logo {
-  font-size: 50px;
-  color: #187718;
-  text-align: center;
-}
- .login-page {
-    /* display:block; */
-    position: fixed;
-    align-items: center;
-    margin-left:700px;
-    margin-top: 70px;
-    padding-bottom: 24px;
-    padding-top: 15px;
-    text-align: center;
-    font-family: inherit;
-    /* font-size: 20px; */
-    height: 310px;
-    width: 400px;
-    border: none;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, .1);
-    
- } 
- .login-form {
-   box-shadow: 0px 24px 2px -24px gray;
-   /* display: flex; */
-   padding-bottom: 15px;
-  
- }
-
- .input-box {
-   padding: 11px;
-   margin: 5px;
-   width: 330px;
-   border-radius: 6px;
-   font-size: 17px;
-   border: 1px solid #dddfe2;
-   vertical-align: middle;
- }
- .input-button {
-   padding: 11px;
-   margin: 5px;
-   width: 350px;
-   color: white;
-   font-weight: bolder;
-   border: none;
-   border-radius: 6px;
-   height: 50px;
-   font-size: 20px;
- }
- .log-in {
-   background: #1877F2;
- }
-  .login-errors {
-    font-family: inherit;
-    font-size: 12px;
-    background-color: #be4b49;
-    border: 0;
-    border-radius: 2px;
-    box-shadow: 0 0 0 1px rgba(139, 3, 0, .75), 0 1px 10px rgba(0, 0, 0, .35);
-    color: #fff;
-    /* position: relative; */
-    display: block;
-    width: 100px;
-    height: 100px;
-    list-style-type: none;
-    margin-top: 150px;
-    margin-left: 500px;
-
-  }
-
- input[type="radio"] {
-    
-    line-height: 36px;
-    padding: 0 10px 0 10px;
-    /* width: 100%; */
- }
- .radio-container {
-    box-sizing: border-box;
-    color: #1c1e21;
-    display: inline-block;
-    font-family: inherit;
-    font-size: 15px;
-    padding: 0 28px 0 10px;
-    width: 100%;
- }
- .create-new-user, .demo-user {
-   margin-top: 15px;
-   width: 220px;
-   font-size: 18px;
-   background: #42B72A;
- }
- .sign-up-button {
-   background: #42B72A;
-   margin-top: 23px;
-   width: 200px;
- }
-
-
-.modal-body {
-  font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
-  border: none;
-}
-
-.sign-up-form {
-  align-items: center;
-  text-align: center;
-}
-
-.sign-up-text {
-  margin-left: 5px;
-  margin-right: 5px;
-  padding: 1px;
-  box-shadow: 0px 5px 2px -5px gray;
-}
-
-.sign-up-gender{
-  display: block;
-  color: #606770;
-  font-family: inherit;
-  font-size: 12px;
-  margin-bottom: 0;
-  margin-top: 2px;
-  margin-left: 5px;
-  text-align: left;
-}
-
-.react-responsive-modal-overlay {
-  background: #FFFFFFCC;
-  display: flex;
-  align-items: flex-start;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
-  z-index: 1000;
-  padding: 1.2rem;
-}
-
-.react-responsive-modal-modal {
-  max-width: 800px;
-  position: relative;
-  padding: 1.2rem;
-  background: #ffffff;
-  background-clip: padding-box;
-  border-radius: 8px;
-  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.25);
-  margin-top: 150px;
-  margin-left: 400px;
-}
-
-.react-responsive-modal-modalCenter {
-  margin: auto;
-}
-
-.react-responsive-modal-closeButton {
-  position: absolute;
-  top: 14px;
-  right: 14px;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-  background-color: transparent;
-  display: flex;
-}
-
-.logout-button {
-  font-family: inherit;
-  font-size: 14px;
-  background: white;
-  color: gray;
-
-}
 
 .navbar-container {
   display: flex;
-  /* justify-content: space-around; */
+  justify-content: space-around;
+  box-sizing: border-box; 
+  border: none;
+  position: static;
   flex-wrap: wrap;
   height: 50px;
   position: relative;
   width: 100%;
   background: #2851A3;
-  padding: 0 10px;
-  margin: 0 0 0 0;
+  padding: 0 100px;
+  margin: auto;
 }
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #2851A3;
+  padding: 16px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  z-index: 1;
+  border: #A9A9A9;
+  box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
+  right: 0;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  font-family: inherit;
+  font-size: 20px;
+  color:#A9A9A9;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  background: white;
+}
+
+/* Change color of dropdown links on hover */
+/* .dropdown-content a:hover {background-color: #ddd;} */
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+/* .dropdown:hover .dropbtn {background-color: #3e8e41;} */
+
+.arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+
+.logout-button {
+  cursor: pointer;
+}
+
 
 .newsfeed {
   margin-top:50px;
@@ -235,9 +109,3 @@
   display: inline-block;
 }
 
-.user-show-link {
-  color: black;
-  font-family: inherit;
-  font-size:20px;
-  text-decoration: none;
-}

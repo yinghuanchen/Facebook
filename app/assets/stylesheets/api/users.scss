@@ -1,3 +1,10 @@
 // Place all the styles related to the api/users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-show-link {
+  color: black;
+  font-family: inherit;
+  font-size:20px;
+  text-decoration: none;
+}

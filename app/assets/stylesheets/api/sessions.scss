@@ -1,3 +1,218 @@
 // Place all the styles related to the api/sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.welcome-page {
+  font-family: inherit;
+  align-items: center;
+  margin-left: 250px;
+  margin-right: 0px;
+  margin-top: 70px;
+}
+.welcome-text {
+  color: #1c1e21;
+  text-align: center;
+}
+.welcome-login-page {
+  display: flex;
+  flex-wrap: wrap;
+}
+.logo {
+  font-size: 50px;
+  color: #187718;
+  text-align: center;
+}
+ .login-page {
+    /* display:block; */
+    position: fixed;
+    align-items: center;
+    margin-left:700px;
+    margin-top: 70px;
+    padding-bottom: 24px;
+    padding-top: 15px;
+    text-align: center;
+    font-family: inherit;
+    /* font-size: 20px; */
+    height: 310px;
+    width: 400px;
+    border: none;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, .1);
+    
+ } 
+ .login-form {
+   box-shadow: 0px 24px 2px -24px gray;
+   /* display: flex; */
+   padding-bottom: 15px;
+  
+ }
+
+ .input-box {
+   padding: 11px;
+   margin: 5px;
+   width: 330px;
+   border-radius: 6px;
+   font-size: 17px;
+   border: 1px solid #dddfe2;
+   vertical-align: middle;
+ }
+ .input-button {
+   padding: 11px;
+   margin: 5px;
+   width: 350px;
+   color: white;
+   font-weight: bolder;
+   border: none;
+   border-radius: 6px;
+   height: 50px;
+   font-size: 20px;
+ }
+ .log-in {
+   background: #1877F2;
+ }
+
+ input[type="radio"] {
+    line-height: 36px;
+    padding: 0 10px 0 10px;
+    /* width: 100%; */
+ }
+ .radio-container {
+    box-sizing: border-box;
+    border-block-color: black;
+    color: #1c1e21;
+    display: inline-block;
+    font-family: inherit;
+    font-size: 15px;
+    padding: 0 28px 0 10px;
+    width: 70px;
+ }
+ .create-new-user, .demo-user {
+   margin-top: 15px;
+   width: 220px;
+   font-size: 18px;
+   background: #42B72A;
+ }
+ .sign-up-button {
+   background: #42B72A;
+   margin-top: 23px;
+   width: 200px;
+ }
+
+
+.modal-body {
+  font-family: SFProDisplay-Bold, Helvetica, Arial, sans-serif;
+  border: none;
+}
+
+.sign-up-form {
+  align-items: center;
+  text-align: center;
+}
+
+.sign-up-text {
+  margin-left: 5px;
+  margin-right: 5px;
+  padding: 1px;
+  box-shadow: 0px 5px 2px -5px gray;
+}
+
+.sign-up-gender{
+  display: block;
+  color: #606770;
+  font-family: inherit;
+  font-size: 12px;
+  margin-bottom: 0;
+  margin-top: 2px;
+  margin-left: 5px;
+  text-align: left;
+}
+
+.react-responsive-modal-overlay {
+  background: #FFFFFFCC;
+  display: flex;
+  align-items: flex-start;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1000;
+  padding: 1.2rem;
+}
+
+.react-responsive-modal-modal {
+  max-width: 800px;
+  position: relative;
+  padding: 1.2rem;
+  background: #ffffff;
+  background-clip: padding-box;
+  border-radius: 8px;
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.25);
+  margin-top: 150px;
+  margin-left: 400px;
+}
+
+.react-responsive-modal-modalCenter {
+  margin: auto;
+}
+
+.react-responsive-modal-closeButton {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background-color: transparent;
+  display: flex;
+}
+
+.logout-button {
+  font-family: inherit;
+  font-size: 14px;
+  background: white;
+  color: gray;
+
+}
+
+.login-errors-div .signup-errors-div {
+  background: #c51244;
+  padding: 10px;
+  border-radius: 5px;
+  position: relative; 
+  display: inline-block;
+  box-shadow: 1px 1px 1px #aaaaaa;
+  margin-top: 10px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  height: 40px;
+  text-align: center;
+  left: 1100px;
+  top: 80px;
+}
+
+.login-errors .signup-errors{
+    list-style: none; 
+    list-style-type: none;
+    list-style-position: inside;
+    margin: 5px;
+}
+
+.login-errors-div:before {
+   content: ''; 
+  width: 0; 
+  height: 0; 
+  border-bottom: 10px solid transparent;
+  border-top: 10px solid transparent;
+  border-right: 10px solid #c51244;
+  left: -10px; 
+  position: absolute; 
+  
+}
+// .errors-and-login {
+//     display: flex; 
+// }

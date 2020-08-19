@@ -24,8 +24,9 @@ class SignUpForm extends React.Component {
     }
 
     renderErrors() {
+        // debugger
         return (
-            <ul>
+            <ul className="signup-errors">
                 {this.props.errors.map((error, idx) => (
                     <li key={`${idx}`}>
                         {error}
@@ -36,6 +37,11 @@ class SignUpForm extends React.Component {
     }
 
     render() {
+        const errors = this.props.errors.length !== 0 ? (
+            <div className="signin-errors-div">
+                {this.renderErrors()}
+            </div>
+        ) : null;
        return (
            <div className="modal-body">           
                <div className="sign-up-text">
@@ -75,6 +81,7 @@ class SignUpForm extends React.Component {
                    <br />
                    <input type="submit" className="input-button sign-up-button" value="Sign Up" />
                </form>
+               {errors}
            </div>
        )
     }
