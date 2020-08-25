@@ -13,6 +13,16 @@ class LogInForm extends React.Component {
         this.handleDemoUser = this.handleDemoUser.bind(this);
     }
 
+    componentDidMount() {
+        this.props.clearErrors(this.props.errors); 
+    }
+    
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state !== prevState) {
+           this.props.clearErrors(this.props.errors); 
+       }
+    }
+
     update(field) {
         return (e) => this.setState({
             [field]: e.currentTarget.value
@@ -23,7 +33,7 @@ class LogInForm extends React.Component {
         e.preventDefault();
         const { email, password } = this.state;
         const user = { 'email': email, 'password': password };
-        this.props.login(user).then(() => this.props.history.push('/newsfeed'));
+        this.props.login(user);
     }
 
     handleDemoUser(e) {
@@ -39,6 +49,7 @@ class LogInForm extends React.Component {
                         {error}
                     </li>
                 ))}
+                {/* {this.props.clearErrors(this.props.errors)} */}
             </ul>
         );
     }
@@ -55,17 +66,17 @@ class LogInForm extends React.Component {
     render() {
         const isModalOpen = this.state.isModalOpen;
         const modal = isModalOpen ? (
-            <Modal open={isModalOpen} onClose={this.onCloseModal} classNames={{
+            <Modal open={isModalOpen} onClose={this.onCloseModal } classNames={{
                 overlay: 'react-responsive-modal-overlay',
                 modal: 'react-responsive-modal-modal',
                 modalCenter: 'react-responsive-modal-modalCenter',
                 closeButton: 'react-responsive-modal-closeButton',
             }}>
 
-                <SignUpFormContainer />
+                <SignUpFormContainer/>
             </Modal>
         ) : null; 
-        const errors = this.props.errors.length !== 0 ? (
+        const errors = this.props.errors.length !== 0 && !isModalOpen ?  (
             <div className="login-errors-div">
                 {this.renderErrors()}
             </div>

@@ -12,6 +12,16 @@ class SignUpForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this); 
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (this.state !== prevState) {
+            this.props.clearErrors(this.props.errors);
+        }
+    }
+
+    componentDidMount() {
+        this.props.clearErrors(this.props.errors); 
+    }
+
     update(field) {
         return e => this.setState({
             [field]: e.currentTarget.value
@@ -20,7 +30,7 @@ class SignUpForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault(); 
-        this.props.signup(this.state).then(() => {this.props.history.push(`/newsfeed`)});
+        this.props.signup(this.state);
     }
 
     renderErrors() {
@@ -37,6 +47,7 @@ class SignUpForm extends React.Component {
     }
 
     render() {
+        console.log(this.props);
         const errors = this.props.errors.length !== 0 ? (
             <div className="signin-errors-div">
                 {this.renderErrors()}
@@ -48,7 +59,6 @@ class SignUpForm extends React.Component {
                     <h1>Sign Up</h1>
                     <h4 >It’s quick and easy.</h4>
                 </div>
-               {this.renderErrors()}
                <form className="sign-up-form" onSubmit={this.handleSubmit} >
                    <input type="text"
                        className="input-box"
@@ -69,15 +79,17 @@ class SignUpForm extends React.Component {
                        onChange={this.update('password')} />
                    <br />
                    <div className="sign-up-gender">Gender:</div>
-                   <label className="radio-container"> Male
-                            <input type="radio" value="Male"  name="g" onChange={this.update('gender')} />
-                   </label>
-                   <label className="radio-container"> Female
-                            <input type="radio" value="Female"  name="g" onChange={this.update('gender')} />
-                   </label>
-                   <label className="radio-container"> Custom
-                            <input type="radio" value="Custom" name="g" onChange={this.update('gender')} />
-                   </label>
+                   <div className="gender-container">
+                       <label className="radio-container"> Male
+                                <input type="radio" value="Male" name="g" onChange={this.update('gender')} />
+                       </label>
+                       <label className="radio-container"> Female
+                                <input type="radio" value="Female" name="g" onChange={this.update('gender')} />
+                       </label>
+                       <label className="radio-container"> Custom
+                                <input type="radio" value="Custom" name="g" onChange={this.update('gender')} />
+                       </label>
+                   </div>
                    <br />
                    <input type="submit" className="input-button sign-up-button" value="Sign Up" />
                </form>

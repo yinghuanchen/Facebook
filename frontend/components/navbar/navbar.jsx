@@ -13,20 +13,27 @@ class NavBar extends React.Component {
 
     render() { 
         const display = this.props.currentUser ? (
-            <div className="navbar-container">
-                <Link to='/newsfeed' className="navbar-newsfeed-link">f</Link>
+            <nav className="navbar-container">
+                <Link to='/newsfeed' className="navbar-newsfeed-link"><i className="fab fa-facebook-square fa-2x"></i></Link>
                 {/* <button className="logout-button" >Log out</button> */}
+                <div className="dropdown">
+                    <button className="dropbtn friend-notice-dropbtn"><i className="fas fa-user-friends fa-2x"></i></button>
+                    <div className="dropdown-content friend-dropdown-content">
+                        <a href="https://github.com/yinghuanchen"><i className="fab fa-github"></i> &nbsp;yinghuanchen</a>
+                    </div>
+                </div>
                 <div className="dropdown">
                     <button className="dropbtn"><i className="arrow down"></i></button>
                     <div className="dropdown-content">
-                        <a href="#">Link 1</a>
-                        <a className="logout-button" onClick={this.handleLogout}>Log out</a>
+                        <a href="https://github.com/yinghuanchen"><i className="fab fa-github"></i> &nbsp;yinghuanchen</a>
+                        <a href="https://www.linkedin.com/in/ying-huan-chen-790093119/"><i className="fab fa-linkedin"></i> &nbsp;Emily Chen</a>
+                        <a className="logout-button" onClick={this.handleLogout}><i className="fas fa-sign-out-alt"></i>&nbsp;Log out</a>
                     </div>
                 </div>
-            </div>
+            </nav>
         ) : null;
-        return (
-            <div>
+        return ( 
+            <div className="navbar-container-container">
                 {display}
             </div>
         )

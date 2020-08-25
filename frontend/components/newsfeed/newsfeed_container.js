@@ -1,12 +1,14 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import NewsFeed from './newsfeed';
+import { fetchUser } from './../../actions/user_action';
 
 const mSTP = (state) => ({
     currentUser: state.entities.users[state.session.id],
 });
 
-// const mDTP = (dispatch) => ({
-// });
+const mDTP = (dispatch) => ({
+    fetchUser: (userId) => dispatch(fetchUser(userId))
+});
 
-export default connect(mSTP, null)(NewsFeed);
+export default connect(mSTP, mDTP)(NewsFeed);

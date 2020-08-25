@@ -8,3 +8,136 @@
   font-size:20px;
   text-decoration: none;
 }
+.user-profile-page {
+  margin: 50px 0 0 130px;
+}
+
+.cover-photo-container, .profile-picture-container {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.cover-photo-holder {
+  width: 851px;
+  height: 315px; 
+  border: 1px solid black; 
+  margin-top: 17px; 
+  overflow: hidden;
+}
+
+img {
+   max-width:100%;
+    max-height:auto;
+    object-fit: cover;
+}
+
+#input[type="file"] {
+  display: none;
+}
+.image-upload-label { 
+  font-family: inherit;
+  width: 50px; 
+  color: white;
+  background: transparent ;
+  border-radius: 5px;
+  margin:50px 0 0 50px;
+  display: flex;
+  justify-content: center;
+  cursor: pointer; 
+}
+.profile-img-input-label {
+  display: flex; 
+  flex-wrap: nowrap;  
+  width: 30px;
+
+}
+.image-upload-label i {
+  color: white; 
+}
+.image-upload-label-text {
+  display: none;
+}
+.image-upload-label:hover .image-upload-label-text {
+  display: inline-block;
+}
+.image-upload-label:hover {
+  background: black;
+  border: 1px solid #000;
+  width: 170px; 
+  height: auto;
+}
+.cover-photo {
+    // border: 1px solid #000;
+    // border-color: rgba(0, 0, 0, .25);
+    // border-top-color: rgba(0, 0, 0, .1);
+    position: absolute;
+    top: 50px;
+    width: 1000px;
+    z-index: 0;
+}
+.cover-form-modal-center {
+  margin: 200px;
+}
+.cover-photo-preview {
+  
+}
+
+.edit-cover-photo-btn {
+  position: relative;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.edit-profile-picture-btn {
+  position: relative;
+  top: 60px;
+  left: 5px;
+  z-index: 100;
+}
+
+.profile-picture {
+  z-index: 99;
+  display: block;
+  border-radius: 100%;
+  background-color: #fff;
+  height: 160px;
+  position: relative;
+  width: 160px;
+  overflow: hidden;
+  top: 135px;
+  left: 20px;
+}
+
+.profile-username-holder {
+  font-family: inherit; 
+  font-size: 25px;
+  color: white;
+  font-weight: bold;
+  position: relative;
+  left: 200px;
+  top: 50px;
+  text-shadow: 0 0 3px rgba(0, 0, 0, .8);
+  z-index: 101;
+}
+
+.user-profile-page-header {
+  margin-bottom: 120px;
+}
+.user-profile-page-content {
+  width: 851px;
+  display: flex;
+  justify-content: space-between;
+}
+.profile-side-page {
+  width: 300px;
+}
+.profile-body-page {
+  width: 500px;
+}
+
+
+

@@ -31,4 +31,10 @@ class ApplicationController < ActionController::Base
         end 
     end 
 
+    def require_logged_out
+        if logged_in? 
+            render json: {errors: ["log out first"]}, status: 401
+        end 
+  end
+
 end

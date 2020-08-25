@@ -28,6 +28,29 @@ chris = User.create!(
   password: '123456'
 )
 
+jack = User.create!(
+   username: 'Jack',
+  email: 'jack@email',
+  gender: 'Male',
+  password: '123456'
+)
+
+jenny = User.create!(
+   username: 'jenny',
+  email: 'jenny@email',
+  gender: 'Female',
+  password: '123456'
+)
+
+mike = User.create!(
+  username: 'jenny',
+  email: 'mike@email',
+  gender: 'Male',
+  password: '123456'
+)
+
+
+
 demo1 = User.create!(
   username: 'Demo',
   email: 'demo@email',

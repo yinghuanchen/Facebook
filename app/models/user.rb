@@ -1,14 +1,44 @@
 class User < ApplicationRecord
+    has_one_attached :profile_picture
+    has_one_attached :cover_photo
+    
     validates :username, :email, :gender,  :password_digest, :session_token, presence: true
     validates :email, :session_token, uniqueness: true
     validates :gender, inclusion: {in: ['Male', 'Female', 'Custom']}
     validates :password, length: { minimum: 6 }, allow_nil: true
+    # Friendship
+    has_many :friendships, foreign_key: :user_first_id, class_name: :Friendship
+    has_many :friends, through: :friendships, source:  :user_second
 
-    has_and_belongs_to_many :friends,
-        class_name: :User, 
-        join_table:  :friends, 
-        foreign_key: :user_first_id, 
-        association_foreign_key: :user_second_id
+    # Friend Request 
+    has_many :out_friend_requests, 
+        foreign_key: :requester_id, 
+        class_name: :FriendRequest
+
+    has_many :in_friend_requests, 
+        foreign_key: :requestee_id, 
+        class_name: :FriendRequest
+
+    has_many :requestees, 
+        through: :out_friend_requests, 
+        source: :requestee
+
+    has_many :requesters, 
+        through: :in_friend_requests, 
+        source: :requester    
+
+    
+    # Posts
+    has_many :authored_posts, foreign_key: :author_id, class_name: :Post
+    has_many :wall_posts, foreign_key: :wall_id, class_name: :Post
+
+    # Comments
+    has_many :authored_comments, foreign_key: :author_id, class_name: :Comment
+    #has_many :wall_comments, through: :wall_posts, source: :comments
+
+    # Likes 
+    has_many :likes, foreign_key: :user_id, class_name: :Like 
+    has_many :liked_posts, through: :likes, source: :post
 
 
     attr_reader :password

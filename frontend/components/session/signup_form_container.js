@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import {withRouter} from 'react-router-dom';
-import { signup } from '../../actions/session_actions';
+import { signup, clearErrors } from '../../actions/session_actions';
 import SignUpForm from './signup_form';
 const mSTP = (state) => ({
     errors: state.errors.session,
@@ -9,7 +9,8 @@ const mSTP = (state) => ({
 });
 
 const mDTP = (dispatch) => ({
-    signup: (user) => dispatch(signup(user))
+    signup: (user) => dispatch(signup(user)),
+    clearErrors: (errors) => dispatch(clearErrors(errors)), 
 });
 
 export default withRouter(connect(mSTP, mDTP)(SignUpForm)); 
