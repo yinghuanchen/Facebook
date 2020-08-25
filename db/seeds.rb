@@ -72,54 +72,54 @@ demo3 = User.create!(
   password: '123456'
 )
 
-Friendship.create!(
-  user_first_id: chris.id, 
-  user_second_id: emily.id
-)
+# Friendship.create!(
+#   user_first_id: chris.id, 
+#   user_second_id: emily.id
+# )
 
-Friendship.create!(
-  user_first_id: emily.id,
-  user_second_id: chris.id 
-)
+# Friendship.create!(
+#   user_first_id: emily.id,
+#   user_second_id: chris.id 
+# )
 
-Friendship.create!(
-  user_first_id: emily.id,
-  user_second_id: mandy.id 
-)
+# Friendship.create!(
+#   user_first_id: emily.id,
+#   user_second_id: mandy.id 
+# )
 
-Friendship.create!(
-  user_first_id: mandy.id,
-  user_second_id: emily.id 
-)
+# Friendship.create!(
+#   user_first_id: mandy.id,
+#   user_second_id: emily.id 
+# )
 
-Friendship.create!(
-  user_first_id: chris.id,
-  user_second_id: jack.id 
-)
+# Friendship.create!(
+#   user_first_id: chris.id,
+#   user_second_id: jack.id 
+# )
 
-Friendship.create!(
-  user_first_id: jack.id,
-  user_second_id: chris.id 
-)
+# Friendship.create!(
+#   user_first_id: jack.id,
+#   user_second_id: chris.id 
+# )
 
 
 
-Post.delete_all 
+# Post.delete_all 
 
-Post.create!(
-  author_id: chris.id, 
-  wall_id: chris.id, 
-  body: 'My first post!'
-)
+# Post.create!(
+#   author_id: chris.id, 
+#   wall_id: chris.id, 
+#   body: 'My first post!'
+# )
 
-Post.create!(
-  author_id: chris.id, 
-  wall_id: chris.id, 
-  body: 'My second post!'
-)
+# Post.create!(
+#   author_id: chris.id, 
+#   wall_id: chris.id, 
+#   body: 'My second post!'
+# )
 
-Post.create!(
-  author_id: chris.id, 
-  wall_id: emily.id, 
-  body: `How's it going?`
-)
+# Post.create!(
+#   author_id: chris.id, 
+#   wall_id: emily.id, 
+#   body: `How's it going?`
+# )
