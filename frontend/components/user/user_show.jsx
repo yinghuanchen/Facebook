@@ -1,7 +1,7 @@
 import React from 'react';
 import ProfileHeaderContainer from './profile/profile_header/profile_header_container';
-import ProfileSide from './profile/profile_side/profile_side_container';
-import ProfileBody from './profile/profile_body/profile_body';
+import ProfileSideContainer from './profile/profile_side/profile_side_container';
+import ProfileBodyContainer from './profile/profile_body/profile_body_container';
 class UserShow extends React.Component {
     constructor(props) {
         super(props); 
@@ -24,8 +24,8 @@ class UserShow extends React.Component {
                    <ProfileHeaderContainer />
                </div>
                <div className="user-profile-page-content">
-                   <ProfileSide />
-                   <ProfileBody />
+                   <ProfileSideContainer />
+                   <ProfileBodyContainer />
                </div>
                
            </div>

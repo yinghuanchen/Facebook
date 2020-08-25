@@ -35,7 +35,14 @@ class ProfileHeader extends React.Component {
                 <ProfilePhoto user={this.props.user} isEditable={isEditable} updateUserPhoto={this.props.updateUserPhoto} />
                 <div className="profile-username-holder">
                     <span>{this.props.user.username}</span>
+                </div><div className="profile-header-page-ul-container">
+                    <ul className="profile-header-page-ul clearfix">
+                        <li>Timeline</li>
+                        <li>About</li>
+                        <li>Friends</li>
+                    </ul>
                 </div>
+                
                 {button}
             </div>
         )

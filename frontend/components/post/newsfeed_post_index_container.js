@@ -1,7 +1,8 @@
 import PostIndex from './post_index';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchAllPosts } from '../../actions/post_action';
+import { fetchAllPosts, fetchPost} from '../../actions/post_action';
+import { fetchAllComments } from '../../actions/comment_action';
 import { fetchUser } from '../../actions/user_action';
 
 const mSTP = (state) => ({
@@ -16,6 +17,8 @@ const mSTP = (state) => ({
 
 const mDTP = dispatch => ({
     fetchAllPosts: (payload) => dispatch(fetchAllPosts(payload)),
+    fetchPost: (postId) => dispatch(fetchPost(postId)),
+    fetchAllComments: (postId) => dispatch(fetchAllComments(postId)),
     fetchUser: (userId) => dispatch(fetchUser(userId))
 });
 

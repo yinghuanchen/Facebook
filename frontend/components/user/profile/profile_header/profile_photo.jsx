@@ -6,8 +6,10 @@ class ProfilePhoto extends React.Component {
         this.state = { profileImg: null, profileImgURL: null, isModalOpen: false }
         this.onOpenModal = this.onOpenModal.bind(this);
         this.onCloseModal = this.onCloseModal.bind(this);
+        this.profilePhotoUpload = React.createRef(); 
         this.handleProfileSubmit = this.handleProfileSubmit.bind(this);
         this.handleProfileFile = this.handleProfileFile.bind(this);
+        this.showProfilePhotoUpload = this.showProfilePhotoUpload.bind(this);
 
     }
 
@@ -31,7 +33,7 @@ class ProfilePhoto extends React.Component {
     }
 
     handleProfileSubmit(e) {
-        e.preventDefault();
+        // e.preventDefault();
         const formData = new FormData();
         if (this.state.profileImg) {
             formData.append('user[profile_picture]', this.state.profileImg);
@@ -39,18 +41,21 @@ class ProfilePhoto extends React.Component {
         }
         this.setState({ isModalOpen: false });
     }
+    showProfilePhotoUpload() {
+        this.profilePhotoUpload.current.click();
+    }
 
 
 
     render() {
 
         const editButton = this.props.isEditable ? (
-            <div class='edit-profile-picture-btn' >
-                <input type="file" accept="image/*" id="input" onChange={this.handleProfileFile} />
+            <div className='edit-profile-picture-btn' >
+                <input type="file" accept="image/*" id="input" onChange={this.handleProfileFile} ref={this.profilePhotoUpload} />
                 <div className="profile-img-input-label">
                     <label className="image-upload-label" htmlFor="input">
-                        <i class="fas fa-camera fa-lg"></i>
-                        <div className="image-upload-label-text">&nbsp;Update</div>
+                        <i className="fas fa-camera fa-lg"></i>
+                        <div className="image-upload-label-text" onClick={this.showProfilePhotoUpload}>&nbsp;Update</div>
                     </label>
                 </div> 
             </div>
@@ -66,7 +71,7 @@ class ProfilePhoto extends React.Component {
                 <div className="profile-picture-preview">
                     <img src={this.state.profileImgURL} alt="" id="img" className="img" />
                     <button className="profile-img-upload-btn" onClick={this.handleProfileSubmit}>
-                        <i class="fas fa-camera fa-2x">&nbsp;Submit Pofile Picture</i>
+                        <i className="fas fa-camera fa-2x">&nbsp;Submit Pofile Picture</i>
                     </button>
 
                 </div>

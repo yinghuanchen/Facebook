@@ -1,9 +1,66 @@
 // Place all the styles related to the api/posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post-form-container {
+  font-family: inherit;
+  border: 1px solid black;
+}
+.post-form-holder {
+  margin: 10px;
+}
+
 .post-form-submit-btn {
     width: 50px;
     cursor: pointer; 
+}
+.post-form {
+  margin: 15px 15px 5px 5px;
+}
+.post-form-submit-btn {
+  font-size: 15px;
+    line-height: 22px;
+    background-color: #286cd1;
+    border-color: #286cd1;
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+    border: 1px solid;
+    border-radius: 2px;
+    box-sizing: content-box;
+    -webkit-font-smoothing: antialiased;
+    font-weight: bold;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    text-shadow: none;
+    vertical-align: middle;
+    color: white;
+    margin-top: 10px;
+    margin-left: 420px;
+}
+.post-form-modal-btn {
+  color: rgba(191, 194, 201,1);
+  opacity: 1;
+}
+.post-form-moal {
+  position: relative;
+  top: 300px;
+  left: -80px;
+  width: 500px;
+  padding: 10px;
+
+}
+input[type="text"]{
+  width: 100%;
+  height: 150px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  background-color: #f8f8f8;
+  resize: none;
+  font-size: 24px;
 }
 textarea {
   width: 100%;
@@ -14,4 +71,68 @@ textarea {
   border-radius: 10px;
   background-color: #f8f8f8;
   resize: none;
+  font-size: 24px;
+}
+.post-index-container {
+  width: 100%;
+}
+
+.post-index-item-container {
+  margin: 15px 0px 15px 0px;
+  font-family: inherit; 
+  display: inline-block;
+  border: gray 1px solid;
+  width: 100%;
+  padding: 12px 12px 0;
+  margin-bottom: 40px;
+  font-size: 24px;
+  box-sizing: border-box; 
+}
+.post-index-item-author-information {
+  display: flex; 
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.post-index-item-author-img-container {
+  margin-right: 20px;
+}
+.post-index-item-author-img-container img {
+  border-radius: 50%;
+    overflow: hidden;
+    display: block;
+    height: 40px;
+    width: 40px; 
+    max-width:100%;
+    max-height:100%;
+    object-fit: scale-down;
+}
+.post-index-item-author-name {
+  position: relative;
+  color:  #286cd1;
+  top: 10px;
+}
+.post-index-item-body {
+  box-shadow: 0px 5px 2px -5px gray; 
+  padding: 5px 5px 10px 5px;
+}
+.post-index-item-middle-bar {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 5px 0px;
+  box-shadow: 0px 5px 2px -5px gray;
+}
+.post-index-item-btn {
+  // flex: 1 1 auto;
+  display:flex;
+  justify-content: space-evenly;
+  background: transparent;
+  cursor: pointer;
+  color: gray;
+}
+.post-index-item-btn span {
+  font-family: inherit;
+  font-size: 15px; 
+  position: relative; 
+  left: 20px;
+  top: 5px;
 }

@@ -1,6 +1,7 @@
 import React from 'react'; 
 import {Link} from 'react-router-dom';
 import NewsfeedPostFormContainer from './../post/newsfeed_create_post_form_container';
+import NewsfeedPostIndexContainer from './../post/newsfeed_post_index_container';
 class NewsFeed extends React.Component {
     constructor(props) {
         super(props);
@@ -27,6 +28,7 @@ class NewsFeed extends React.Component {
                 </div>
                 <div className="newsfeed-right">
                     <NewsfeedPostFormContainer/>
+                    <NewsfeedPostIndexContainer />
                 </div>
                
                 

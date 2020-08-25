@@ -47,11 +47,11 @@ class CoverPhoto extends React.Component {
     render() {
         
         const editButton = this.props.isEditable ? (
-            <div class='edit-cover-photo-btn'unselectable>
+            <div className='edit-cover-photo-btn'>
                         <input type="file" accept="image/*" id="input" onChange={this.handleFile} />
                         <div className="img-input-label">
                             <label className="image-upload-label" htmlFor="input"> 
-                                <i class="fas fa-camera fa-lg"></i> 
+                                <i className="fas fa-camera fa-lg"></i> 
                                 <div className="image-upload-label-text">&nbsp;Upload Cover Photo</div>
                             </label>
                         </div> 
@@ -68,7 +68,7 @@ class CoverPhoto extends React.Component {
                 <div className="cover-photo-preview">
                     <img src={this.state.coverImgURL} alt="" id="img" className="img" />
                     <button className="img-upload-btn" onClick={this.handleSubmit}>
-                        <i class="fas fa-camera fa-2x">&nbsp;Submit Cover Photo</i>
+                        <i className="fas fa-camera fa-2x">&nbsp;Submit Cover Photo</i>
                     </button>    
 
                 </div>

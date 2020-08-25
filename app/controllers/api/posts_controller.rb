@@ -22,7 +22,7 @@ class Api::PostsController < ApplicationController
     end
 
     def index
-        #debugger
+        # debugger
         if params[:post][:index_type] == 'wall'
             user = User.find_by(id: params[:post][:wall_id].to_i)
             @posts = user.wall_posts

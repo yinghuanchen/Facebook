@@ -6,7 +6,7 @@ export const REMOVE_COMMENT = "REMOVE_COMMENT";
 
 const receiveAllComments = (comments) => ({
     type: RECEIVE_COMMENTS,
-    comment
+    comments
 });
 
 const receiveComment = (comment) => ({
@@ -24,7 +24,7 @@ export const fetchAllComments = (postId) => (dispatch) => (
 )
 
 
-export const requestComment = (commentId) => (dispatch) => (
+export const fetchComment = (commentId) => (dispatch) => (
     CommentAPIUtil.fetchComment(commentId).then(comment => dispatch(receiveComment(comment)))
 )
 

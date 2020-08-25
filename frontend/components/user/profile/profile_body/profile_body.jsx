@@ -5,6 +5,9 @@ import WallPostIndexContainer from './../../../post/wall_post_index_container';
 class ProfileBody extends React.Component {
     constructor(props) {
         super(props);
+    } 
+    componentDidMount() {
+        this.props.fetchAllPosts({ index_type: this.props.indexType, wall_id: this.props.match.params.userId }); 
     }
 
     render() {

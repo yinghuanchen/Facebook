@@ -5,6 +5,7 @@ import {signup, login, logout} from './util/session_api_util';
 import { sendFriendRequest, deleteFriendRequest} from './util/friend_request_api_util'; 
 import { fetchAllUsers } from './actions/user_action';
 import { addFriend, unFriend } from './util/friend_api_util';
+import { fetchAllComments, createComment} from './actions/comment_action';
 import Root from './components/root';
 document.addEventListener("DOMContentLoaded", () => {
     const root = document.getElementById('root');
@@ -30,6 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addFriend = addFriend;
     window.unFriend = unFriend;
     window.fetchAllUsers = fetchAllUsers;
+    window.fetchAllComments = fetchAllComments;
+    window.createComment = createComment; 
     // For testing 
 
     ReactDOM.render(<Root store={store}/>, root);

@@ -12,7 +12,7 @@ export const fetchComment = (commentId) => (
     })
 );
 
-// contain body and wall_id 
+// contain body and post_id 
 export const createComment = (comment) => (
     $.ajax({
         method: 'POST',

@@ -6,22 +6,30 @@ class PostIndex extends React.Component {
     }
 
     componentDidMount() { 
-        // debugger 
-        if (this.props.indexType === 'wall') this.props.fetchUser(this.props.match.params.userId); 
-        else this.props.fetchUser(this.props.currentUser.id); 
+        // if (this.props.indexType === 'wall') this.props.fetchUser(this.props.match.params.userId); 
+        // else this.props.fetchUser(this.props.currentUser.id); 
         this.props.fetchAllPosts({ index_type: this.props.indexType, wall_id: this.props.match.params.userId}); 
+    } 
+
+    componentDidUpdate(prevProps) {
+        if (this.props.indexType !== prevProps.indexType || this.props.wall.id != prevProps.wall.id) {
+            this.props.fetchAllPosts({ index_type: this.props.indexType, wall_id: this.props.match.params.userId });
+        } 
     }
 
     render() {
-        // debugger
         if (!this.props.posts) return null;  
         return (
-            <div>
-                <h1>Post Index!</h1>
-                {this.props.posts.map((post,idx) => 
-                    <PostIndexItem key={idx} post={post} />
-                )} 
+            <div className="post-index-container">
+                {/* {this.props.posts.map((post,idx) => 
+                    // <PostIndexItem 
+                    //     key={idx} post={post} fetchPost={this.props.fetchPost} 
+                    //     fetchAllComments={this.props.fetchAllComments} 
+                    //     currentUser={this.props.currentUser}
+                    //     />
+                )}  */}
             </div>
+           
         )
     }
 }

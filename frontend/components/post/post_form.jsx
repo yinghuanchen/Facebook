@@ -48,7 +48,7 @@ class PostForm extends React.Component {
         if(!this.props.currentUser || !this.props.wall) return null; 
         const { wallType, postType, currentUser } = this.props; 
         if (wallType == 'wall' && currentUser.id !== this.props.wall.id  && !currentUser.friendIds.includes(this.props.wall.id)) return null;
-        const placeholderText = postType == 'create' ? "What's on your mind?" : "Say something about this post..."
+        const placeholderText = postType == 'create' ? `What's on your mind, ${this.props.currentUser.username}?` : "Say something about this post..."
         
         const isModalOpen = this.state.isModalOpen;
         const modal = isModalOpen ? (
@@ -58,7 +58,7 @@ class PostForm extends React.Component {
                 modalCenter: 'react-responsive-modal-modalCenter',
                 closeButton: 'react-responsive-modal-closeButton post-form-modal-btn',
             }}>
-                <form onSubmit={this.handleSubmit}> 
+                <form className="post-form" onSubmit={this.handleSubmit}> 
                     <textarea className="post-form-text" placeholder={placeholderText} onChange={this.handleUpdate}/>
                     {/* <input className="post-form-submit-btn" type="button" value="Post"/> */}
                     <button className="post-form-submit-btn">Post</button>
@@ -66,12 +66,11 @@ class PostForm extends React.Component {
             </Modal>
         ) : null; 
         return (
-            <div>
-                <h1>Post Form!</h1>
-                <div>
-                    <textarea className="post-form-text" placeholder="What's on your mind?" onClick={this.onOpenModal} />
+            <div className="post-form-container">
+                <div className="post-form-holder">
+                    <input type="text" className="post-form-text" placeholder={placeholderText} onClick={this.onOpenModal} />
+                    {modal}
                 </div>
-                {modal}
             </div>
             
         )

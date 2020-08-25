@@ -22,10 +22,16 @@ class CommentForm extends React.Component {
 
 
     render () {
-        <div className="comment-create-form">
+        const commentForm = this.props.isCommentable? (
             <form onSubmit={this.handleSubmit}>
                 <textarea placeholder="Write a comment..." onChange={this.handleUpdate} />
-            </form>
-        </div>
+            </form>   
+        ) : null; 
+        return (
+            <div className="comment-create-form">
+                {commentForm}
+            </div>
+        )
+       
     }
 }
