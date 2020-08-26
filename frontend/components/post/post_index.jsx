@@ -12,13 +12,13 @@ class PostIndex extends React.Component {
     } 
 
     componentDidUpdate(prevProps) {
-        if (this.props.indexType !== prevProps.indexType || this.props.wall.id != prevProps.wall.id) {
+        if (this.props.indexType !== prevProps.indexType || this.props.match.params.userId != prevProps.match.params.userId) {
             this.props.fetchAllPosts({ index_type: this.props.indexType, wall_id: this.props.match.params.userId });
         } 
     }
 
     render() {
-        if (!this.props.posts || !this.props.posts[0]) return null;  
+        if (!this.props.posts || !this.props.posts[0] || !this.props.authors || !this.props.authors[0]) return null;  
         return (
             <div className="post-index-container">
                 {this.props.posts.map((post,idx) => 
@@ -31,6 +31,8 @@ class PostIndex extends React.Component {
                         authorProfilePic={this.props.authors[idx].profilePicture} 
                         createlike={this.props.createlike}
                         deletelike={this.props.deletelike}
+                        deletePost={this.props.deletePost}
+                        isDeletable={Boolean(this.props.currentUser.id === post.wallId || this.props.currentUser.id === this.props.authors[idx].id)}
                     />
                 )} 
             </div>

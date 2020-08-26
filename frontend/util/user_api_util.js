@@ -31,3 +31,10 @@ export const updateUserPhoto = (userId, formData) => {
         })
     )
 }
+
+export const searchUsers = (query) => (
+    $.ajax({
+        method: 'get',
+        url: `/api/users?query=${query}`
+    })
+);

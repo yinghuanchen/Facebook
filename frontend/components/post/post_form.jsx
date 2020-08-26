@@ -13,7 +13,7 @@ class PostForm extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchUser(this.props.match.params.userId); 
+        if(this.props.match.params.userId) this.props.fetchUser(this.props.match.params.userId); 
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -48,17 +48,18 @@ class PostForm extends React.Component {
         if(!this.props.currentUser || !this.props.wall) return null; 
         const { wallType, postType, currentUser } = this.props; 
         if (wallType == 'wall' && currentUser.id !== this.props.wall.id  && !currentUser.friendIds.includes(this.props.wall.id)) return null;
-        const placeholderText = postType == 'create' ? `What's on your mind, ${this.props.currentUser.username}?` : "Say something about this post..."
+        const placeholderText = currentUser.id === this.props.wall.id ? `What's on your mind, ${this.props.currentUser.username}?` : `Write Something to ${this.props.wall.username}...`
         
         const isModalOpen = this.state.isModalOpen;
         const modal = isModalOpen ? (
             <Modal open={isModalOpen} onClose={this.onCloseModal} classNames={{
                 overlay: 'react-responsive-modal-overlay',
-                modal: 'react-responsive-modal-modal post-form-moal',
+                modal: 'react-responsive-modal-modal post-form-modal',
                 modalCenter: 'react-responsive-modal-modalCenter',
                 closeButton: 'react-responsive-modal-closeButton post-form-modal-btn',
             }}>
                 <form className="post-form" onSubmit={this.handleSubmit}> 
+                    <span><i className="fas fa-pencil-alt fa-lg"></i> Create Post</span>
                     <textarea className="post-form-text" placeholder={placeholderText} onChange={this.handleUpdate}/>
                     {/* <input className="post-form-submit-btn" type="button" value="Post"/> */}
                     <button className="post-form-submit-btn">Post</button>
@@ -69,8 +70,8 @@ class PostForm extends React.Component {
             <div className="post-form-container">
                 <div className="post-form-holder">
                     <textarea className="post-form-text" placeholder={placeholderText} onClick={this.onOpenModal} />
-                    {modal}
                 </div>
+                {modal}
             </div>
             
         )

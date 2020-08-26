@@ -60,6 +60,7 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
+  height: 50px;
 }
 .navbar-newsfeed-link i {
     cursor: pointer;
@@ -87,25 +88,24 @@
    z-index: 101;
   position: relative;
   left: 600px;
-  top: 20px;
+  top: -40px;
   border-radius: 5px;
 }
 .friend-drop-down-content {
   font-family: inherit;
   left: 600px;
-  top: 60px;
+  top:0px;
   border-radius: 5px;
   width: 70px;
 }
 .friend-drop-down-a {
   padding-left: 20px;
 }
-.fa-user-friends:hover {
+/* .friend-notice-dropbtn .fa-user-friends:hover {
   color: #231bff;
-}
-.fa-user-friends {
+} */
+.friend-notice-dropbtn .fa-user-friends {
   color: rgb(29, 42, 69);
-  
 }
 
 /* The container <div> - needed to position the dropdown content */
@@ -169,6 +169,8 @@
 
 .newsfeed {
   margin-top:50px;
+  display: flex;
+  flex-wrap: nowrap;
 }
 
 .friend-notice-dropbtn {
@@ -179,6 +181,10 @@
 
 .newsfeed-left {
   margin-left: 50px;
+  width: 300px;
+}
+.newsfeed-right {
+  width: 500px;
 }
 
 .newsfeed-user-profile {
@@ -208,3 +214,32 @@
 .img-upload-btn {
   cursor: pointer;
 }
+
+.newsfeed-user-img-container {
+  margin-right: 20px;
+}
+.newsfeed-user-img-container img {
+  border-radius: 50%;
+    overflow: hidden;
+    display: block;
+    height: 40px;
+    width: 40px; 
+    max-width:100%;
+    max-height:100%;
+    object-fit: scale-down;
+    border: 1px solid black;
+}
+.newsfeed-user-information {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.user-show-link {
+  color: black;
+  font-family: inherit;
+  font-size:20px;
+  text-decoration: none;
+  position: relative;
+  left: -20px;
+  top: 3px;
+} 
+

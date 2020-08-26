@@ -20,7 +20,7 @@ class Friend extends React.Component {
         if (currentUser.friendIds.includes(friendId)) {
           return (
               <div className="dropdown">
-                  <button className="dropbtn friend-button"><i class="fas fa-user-friends"></i>&nbsp;Friend</button>
+                  <button className="dropbtn friend-button"><i className="fas fa-user-friends"></i>&nbsp;Friend</button>
                   <div className="dropdown-content friend-drop-down-content">
                       <button className="friend-drop-down-a" onClick={this.handleDeleteFriendship}>Unfriend</button >
                   </div>

@@ -7,10 +7,15 @@ class PostIndex extends React.Component {
         const like = this.props.post.likerIds.includes(this.props.currentUser.id) ? true : false;
         this.state = {like}; 
         this.handleToggle = this.handleToggle.bind(this);
+        this.handleDelete = this.handleDelete.bind(this); 
     }
     componentDidMount() {
         //this.props.fetchPost(this.props.post.id);
         this.props.fetchAllComments(this.props.post.id); 
+    }
+    handleDelete(e) {
+        e.preventDefault();  
+        this.props.deletePost(this.props.post.id);
     }
 
     handleToggle(e) {
@@ -24,10 +29,15 @@ class PostIndex extends React.Component {
     }
 
     render () {
-        const { post, currentUser} = this.props;
-        const isCommentable = currentUser.id === post.wallId || currentUser.id.friendIds.includes(post.wallId) ? true:false;
+        // debugger
+        // const { post, currentUser} = this.props;
+        if (!this.props.currentUser || !this.props.post) return null;
+        const isCommentable = this.props.currentUser.id === this.props.post.wallId || this.props.currentUser.friendIds.includes(this.props.post.wallId) ? true:false;
         const likeClass = this.state.like ? "fas fa-thumbs-up fa-2x like" : "far fa-thumbs-up fa-2x"; 
-        const likeFontClass = this.state.like ? "like" : ""; 
+        const likeFontClass = this.state.like ? "like" : "";
+        const likeCount = this.props.post.likerIds.length; 
+        const likedCountUnit = likeCount < 2 ? "like": "likes";
+        const deleteButton = this.props.isDeletable ? (<button className="delete-post-btn" onClick={this.handleDelete}><i className="fas fa-times fa-lg"></i></button>) : null;
         return (
             <div className="post-index-item-container"> 
                 <div className="post-index-item-body">
@@ -37,12 +47,14 @@ class PostIndex extends React.Component {
                                 src={this.props.authorProfilePic} alt="" id="img" className="img"/>
                         </div>
                         <div className="post-index-item-author-name">
-                            <span>{this.props.post.author.username}</span>
+                            <span>{this.props.authorName}</span>
                         </div>  
+                        {deleteButton}
                     </div>
                     <div className="post-index-item-body-text">
                         <p>{this.props.post.body}</p>
                     </div> 
+                    <span className="like-count">{`${likeCount} ${likedCountUnit}`}</span>
                 </div>
                 <div className="post-index-item-middle-bar">
                     <button className="post-index-item-btn" onClick={this.handleToggle}>
@@ -57,8 +69,8 @@ class PostIndex extends React.Component {
                 <div className="post-index-item-comment-index">
 
                 </div>
-                <CommentIndexContainer post={post}/>
-                <CommentCreateForm isCommentable={isCommentable} postId={post.id} 
+                <CommentIndexContainer post={this.props.post}/>
+                <CommentCreateForm isCommentable={isCommentable} postId={this.props.post.id} 
                     createComment={this.props.createComment}
                     fetchPost={this.props.fetchPost}/>
             </div>

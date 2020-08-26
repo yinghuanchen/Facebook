@@ -1,5 +1,6 @@
 import React from 'react'; 
 import {Link} from 'react-router-dom';
+import FriendListItem from './friend_list_item';
 
 class  FriendList extends React.Component {
     constructor(props) {
@@ -7,18 +8,17 @@ class  FriendList extends React.Component {
     }
 
     render () {
-        if (!this.props.friendList || !this.props.friendList[0]) return null;
+        const friendListItems = (!this.props.friendList || !this.props.friendList[0]) ? (null) : (
+            <ul className="friend-list-ul">
+                {this.props.friendList.map((friend, idx) =>
+                    <FriendListItem key={idx} friend={friend} />
+                )}
+            </ul>
+        )
         return (          
-            <div>
-                <h3>Friends</h3>
-                <ul>
-                    {this.props.friendList.map((friend, idx) =>
-                        <li key={idx}>
-                            <Link to={`/users/${friend.id}`} >{friend.username}</Link>
-                        </li>
-                    )}
-                </ul>
-
+            <div className="friend-list-container">
+                <span className="friend-list-container-name"><i class="fas fa-user-friends"></i>&nbsp;Friends</span>
+                {friendListItems}
             </div>
         )
     }

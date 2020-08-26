@@ -1,23 +1,25 @@
 import PostIndex from './post_index';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { fetchAllPosts, fetchPost, createlike, deletelike} from '../../actions/post_action';
+import { fetchAllPosts, fetchPost, createlike, deletelike, deletePost} from '../../actions/post_action';
 import { fetchAllComments } from '../../actions/comment_action';
 import { fetchUser } from '../../actions/user_action';
 
 const mSTP = (state) => {
     const posts = Object.values(state.entities.posts).sort((a, b) => {
-        const dateA = new Date(a.created_at);
-        const dateB = new Date(b.created_at);
+        const dateA = new Date(a.createdAt);
+        const dateB = new Date(b.createdAt);
         return dateA > dateB ? -1 : 1;
     });
-    const authors = posts.some(post => !post) ? null : posts.map(post => state.entities.users[post.authorId]);
+    const authors = !posts || posts.some(post => !post) ? null : posts.map(post => state.entities.users[post.authorId]);
+    const currentUser = state.entities.users[state.session.id];
     return ({
         indexType: 'newsfeed',
         wall: state.entities.users[state.session.id],
         currentUser: state.entities.users[state.session.id],
         posts, 
-        authors 
+        authors,
+        currentUser
     })
 };
 
@@ -28,6 +30,7 @@ const mDTP = dispatch => ({
     fetchUser: (userId) => dispatch(fetchUser(userId)), 
     createlike: (like) => dispatch(createlike(like)), 
     deletelike: (like) => dispatch(deletelike(like)), 
+    deletePost: (postId) => dispatch(deletePost(postId))
 });
 
 export default withRouter(connect(mSTP, mDTP)(PostIndex));

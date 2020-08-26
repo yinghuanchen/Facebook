@@ -6,10 +6,10 @@ class ProfilePhoto extends React.Component {
         this.state = { profileImg: null, profileImgURL: null, isProfileModalOpen: false }
         this.onOpenModal = this.onOpenModal.bind(this);
         this.onCloseModal = this.onCloseModal.bind(this);
-        // this.profilePhotoUpload = React.createRef(); 
+        this.profilePhotoUpload = React.createRef(); 
         this.handleProfileSubmit = this.handleProfileSubmit.bind(this);
         this.handleProfileFile = this.handleProfileFile.bind(this);
-        // this.showProfilePhotoUpload = this.showProfilePhotoUpload.bind(this);
+        this.showProfilePhotoUpload = this.showProfilePhotoUpload.bind(this);
 
     }
 
@@ -42,9 +42,10 @@ class ProfilePhoto extends React.Component {
         }
         this.setState({ isProfileModalOpen: false });
     }
-    // showProfilePhotoUpload() {
-    //     this.profilePhotoUpload.current.click();
-    // }
+    showProfilePhotoUpload() {
+        this.profilePhotoUpload.current.click();
+       
+    }
 
 
 
@@ -52,11 +53,10 @@ class ProfilePhoto extends React.Component {
 
         const editButton = this.props.isEditable ? (
             <div className='edit-profile-picture-btn' >
-                <input type="file" accept="image/*" id="input" onChange={this.handleProfileFile} />
+                <input type="file" accept="image/*" id="input" onChange={this.handleProfileFile} ref={this.profilePhotoUpload} />
                 <div className="profile-img-input-label">
-                    <label className="image-upload-label" htmlFor="input">
-                        <i className="fas fa-camera fa-lg"></i>
-                        <div className="image-upload-label-text">&nbsp;Update</div>
+                    <label className="prof-image-upload-label" htmlFor="input" onClick={this.showProfilePhotoUpload}>
+                        <div className="prof-image-upload-label-text"><i className="fas fa-camera fa-lg"></i>&nbsp;Update</div>
                     </label>
                 </div> 
             </div>
@@ -70,10 +70,15 @@ class ProfilePhoto extends React.Component {
                 closeButton: 'react-responsive-modal-closeButton profile-picture-modal-btn',
             }}>
                 <div className="profile-picture-preview">
-                    <img src={this.state.profileImgURL} alt="" id="img" className="img" />
-                    <button className="profile-img-upload-btn" onClick={this.handleProfileSubmit}>
-                        <i className="fas fa-camera fa-2x">&nbsp;Submit Pofile Picture</i>
-                    </button>
+                    <ul>
+                        <li><img src={this.state.profileImgURL} alt="" id="img" className="img" /></li>
+                        <li>
+                            <button className="profile-img-upload-btn" onClick={this.handleProfileSubmit}>
+                                <i className="fas fa-camera fa-2x">&nbsp;Submit Pofile Picture</i>
+                            </button>
+                        </li>
+                    </ul>
+                    
                 </div>
             </Modal>
         ) : null; 

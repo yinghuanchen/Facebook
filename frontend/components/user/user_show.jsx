@@ -13,7 +13,7 @@ class UserShow extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.wall !== prevProps.wall) {
-            this.setState({wallId: this.props.wall.id})
+            this.setState({wallId: this.props.wall.id}) 
         }
     }
 

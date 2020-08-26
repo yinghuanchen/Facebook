@@ -61,16 +61,20 @@ class CoverPhoto extends React.Component {
         const modal = isModalOpen ? (
             <Modal open={isModalOpen} onClose={this.onCloseModal} classNames={{
                 overlay: 'react-responsive-modal-overlay',
-                modal: 'react-responsive-modal-modal cover-form-modal',
-                modalCenter: 'react-responsive-modal-modalCenter cover-form-modal-center',
-                closeButton: 'react-responsive-modal-closeButton cover-form-modal-btn',
+                modal: 'react-responsive-modal-modal cover-photo-modal',
+                modalCenter: 'react-responsive-modal-modalCenter cover-photo-modal-center',
+                closeButton: 'react-responsive-modal-closeButton cover-photo-modal-btn',
             }}>
                 <div className="cover-photo-preview">
-                    <img src={this.state.coverImgURL} alt="" id="img" className="img" />
-                    <button className="img-upload-btn" onClick={this.handleSubmit}>
-                        <i className="fas fa-camera fa-2x">&nbsp;Submit Cover Photo</i>
-                    </button>    
+                    <ul>    
+                        <li><img src={this.state.coverImgURL} alt="" id="img" className="img" /></li>
+                        <li>
+                            <button className="img-upload-btn" onClick={this.handleSubmit}>
+                                <i className="fas fa-camera fa-2x">&nbsp;Submit Cover Photo</i>
+                            </button>    
+                        </li>
 
+                    </ul>
                 </div>
                
             </Modal>

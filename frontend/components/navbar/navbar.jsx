@@ -1,5 +1,7 @@
 import React from 'react';  
 import {Link} from 'react-router-dom';
+import SearchBarContainer from './search_bar_container';
+import FriendRequestNotificationContainer from './friend_request_notification_container';
 class NavBar extends React.Component {
     constructor(props) {
         super(props);
@@ -12,16 +14,15 @@ class NavBar extends React.Component {
     }
 
     render() { 
+        if (!this.props.currentUser) return null; 
+        const friendNotification = this.props.currentUser.requesterIds.length === 0 ? (<button className={`dropbtn friend-notice-dropbtn`}><i className="fas fa-user-friends fa-2x"></i></button>) :(
+            <FriendRequestNotificationContainer />
+        )
         const display = this.props.currentUser ? (
             <nav className="navbar-container">
-                <Link to='/newsfeed' className="navbar-newsfeed-link"><i className="fab fa-facebook-square fa-2x"></i></Link>
                 {/* <button className="logout-button" >Log out</button> */}
-                <div className="dropdown">
-                    <button className="dropbtn friend-notice-dropbtn"><i className="fas fa-user-friends fa-2x"></i></button>
-                    <div className="dropdown-content friend-dropdown-content">
-                        <a href="https://github.com/yinghuanchen"><i className="fab fa-github"></i> &nbsp;yinghuanchen</a>
-                    </div>
-                </div>
+                <SearchBarContainer />
+                {friendNotification} 
                 <div className="dropdown">
                     <button className="dropbtn"><i className="arrow down"></i></button>
                     <div className="dropdown-content">

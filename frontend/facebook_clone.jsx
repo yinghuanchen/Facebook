@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import configureStore from './store/store';
 import {signup, login, logout} from './util/session_api_util';
 import { sendFriendRequest, deleteFriendRequest} from './util/friend_request_api_util'; 
-import { fetchAllUsers } from './actions/user_action';
+import { fetchAllUsers, searchUsers} from './actions/user_action';
 import { addFriend, unFriend } from './util/friend_api_util';
 import { fetchAllComments, createComment} from './actions/comment_action';
 import Root from './components/root';
@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     window.fetchAllUsers = fetchAllUsers;
     window.fetchAllComments = fetchAllComments;
     window.createComment = createComment; 
+    window.searchUsers = searchUsers;
     // For testing 
 
     ReactDOM.render(<Root store={store}/>, root);

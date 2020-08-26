@@ -10,6 +10,7 @@ class NewsFeed extends React.Component {
     componentDidMount() {
        // debugger
         if (this.props.currentUser) this.props.fetchUser(this.props.currentUser.id); 
+        this.props.fetchAllUsers(); 
     }
 
     render() {
@@ -17,12 +18,16 @@ class NewsFeed extends React.Component {
             <div className="newsfeed">
                 <div className="newsfeed-left">
                     <ul className="newsfeed-user-profile">
-                        <li>
-                            <Link className="user-show-link" to={`/users/${this.props.currentUser.id}`}><i className="fas fa-user"></i>&nbsp;&nbsp;{this.props.currentUser.username}</Link>
+                        <li className="newsfeed-user-information">
+                            <div className="newsfeed-user-img-container">
+                                <img className="newsfeed-user-img"
+                                    src={this.props.currentUser.profilePicture} alt="" id="img" className="img" />
+                            </div>
+                            <Link className="user-show-link" to={`/users/${this.props.currentUser.id}`}>&nbsp;&nbsp;{this.props.currentUser.username}</Link>
                         </li>
                         <br />
                         <li>
-                            <Link to="/newsfeed"><i className="far fa-newspaper"></i>&nbsp;News Feed</Link>
+                            <Link to="/newsfeed"><i className="far fa-newspaper"></i>&nbsp;&nbsp;&nbsp;News Feed</Link>
                         </li>
                     </ul>
                 </div>

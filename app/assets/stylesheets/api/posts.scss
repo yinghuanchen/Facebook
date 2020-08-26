@@ -4,7 +4,8 @@
 
 .post-form-container {
   font-family: inherit;
-  border: 1px solid black;
+  border: 1px solid gray;
+  border-radius: 5px;
 }
 .post-form-holder {
   margin: 10px;
@@ -43,10 +44,10 @@
   color: rgba(191, 194, 201,1);
   opacity: 1;
 }
-.post-form-moal {
+.post-form-modal {
   position: relative;
-  top: 300px;
-  left: -80px;
+  top: 100px;
+  left: -50px;
   width: 500px;
   padding: 10px;
 
@@ -71,6 +72,7 @@ textarea {
   font-family: inherit; 
   display: inline-block;
   border: gray 1px solid;
+  border-radius: 5px;
   width: 100%;
   padding: 12px 12px 0;
   margin-bottom: 40px;
@@ -94,6 +96,7 @@ textarea {
     max-width:100%;
     max-height:100%;
     object-fit: scale-down;
+    border: 1px solid #696969;
 }
 .post-index-item-author-name {
   position: relative;
@@ -124,4 +127,17 @@ textarea {
   position: relative; 
   left: 20px;
   top: 5px;
+}
+
+.delete-post-btn {
+  background: transparent; 
+  color: darkgray; 
+  cursor: pointer;
+  position: relative;
+  left: 340px;
+  top: -15px;
+}
+.like-count {
+  font-size: 15px;
+  color: #696969;
 }

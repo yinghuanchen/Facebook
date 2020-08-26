@@ -48,6 +48,7 @@ input[class*="comment-input-form"] {
 }
 .comment-index-item-author-img-container {
     padding: 0;
+    border: 1px solid #696969;
 }
 .comment-index-item-author-img-container img  {
     border-radius: 50%;
@@ -58,4 +59,12 @@ input[class*="comment-input-form"] {
     max-width:100%;
     // max-height:100%;
     object-fit: scale-down;
+}
+.delete-comment-btn {
+    background: transparent; 
+    color: darkgray; 
+    cursor: pointer;
+    position: relative;
+    left: 375px;
+    top: -35px;
 }

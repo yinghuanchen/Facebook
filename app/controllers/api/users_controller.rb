@@ -2,7 +2,13 @@ class Api::UsersController < ApplicationController
     before_action :require_logged_in, only: [:show, :index, :update]
     before_action :require_logged_out, only: [:create]
     def index
-        @users = User.all
+        # debugger 
+        if params.has_key?(:query)  
+            name = params[:query] 
+            @users = User.where("username ILIKE ?", "%#{name}%")
+        else 
+            @users = User.all
+        end 
         render :index
     end
     

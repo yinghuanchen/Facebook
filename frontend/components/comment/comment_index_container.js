@@ -1,6 +1,8 @@
-import {fetchAllComments} from './../../actions/comment_action'; 
+import { fetchAllComments, deleteComment} from './../../actions/comment_action'; 
 import { connect } from 'react-redux';
 import CommentIndex from './comment_index';
+import { fetchPost} from './../../actions/post_action';
+
 
 const mSTP = (state, ownProps) => {
     //debugger
@@ -10,16 +12,20 @@ const mSTP = (state, ownProps) => {
             const dateB = new Date(b.createdAt);
             return dateA < dateB ? -1 : 1;
     });
-    const authors = comments.some(comment => !comment) ? null: comments.map(comment => state.entities.users[comment.authorId]);
+    const authors = !comments || comments.some(comment => !comment) ? null: comments.map(comment => state.entities.users[comment.authorId]);
+    const currentUser = state.entities.users[state.session.id];
     return ({
         post, 
         comments,
         authors,
+        currentUser, 
     })
 }
 
 const mDTP = (dispatch) => ({
     fetchAllComments: (postId) => dispatch(fetchAllComments(postId)), 
+    deleteComment: (commentId) => dispatch(deleteComment(commentId)), 
+    fetchPost: (postId) => dispatch(fetchPost(postId))
 })
 
 export default connect(mSTP, mDTP)(CommentIndex); 

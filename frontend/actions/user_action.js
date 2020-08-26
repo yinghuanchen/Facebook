@@ -1,9 +1,11 @@
 import * as FriendRequestAPIUtil from '../util/friend_request_api_util';
 import * as FriendShipAPIUtil from '../util/friendship_api_util'; 
 import * as UserAPIUtil from '../util/user_api_util';
+
 export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_ALL_USERS = 'RECEIVE_ALL_USER'; 
 export const RECEIVE_SOME_USER = 'RECEIVE_SOME_USER'; 
+export const RECEIVE_SEARCH_RESULTS = 'RECEIVE_SEARCH_RESULTS'; 
 
 const receiveUser = (user) => ({
     type: RECEIVE_USER,
@@ -20,6 +22,10 @@ const receiveAllUsers = (users) => ({
     users
 });
 
+const receiveSearchResults = (searchResults) => ({
+    type: RECEIVE_SEARCH_RESULTS,
+    searchResults
+});
 
 
 export const sendFriendRequest = (requesteeId) => dispatch => (
@@ -60,3 +66,8 @@ export const updateUserPhoto = (userId, formData) => dispatch => (
     UserAPIUtil.updateUserPhoto(userId, formData)
         .then(user => dispatch(receiveUser(user)))
 ); 
+
+export const searchUsers = query => dispatch => (
+    UserAPIUtil.searchUsers(query)
+        .then(searchResults => dispatch(receiveSearchResults(searchResults)))
+);
