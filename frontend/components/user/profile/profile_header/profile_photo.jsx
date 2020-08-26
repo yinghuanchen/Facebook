@@ -3,22 +3,22 @@ import {Modal} from 'react-responsive-modal';
 class ProfilePhoto extends React.Component {
     constructor(props) {
         super(props); 
-        this.state = { profileImg: null, profileImgURL: null, isModalOpen: false }
+        this.state = { profileImg: null, profileImgURL: null, isProfileModalOpen: false }
         this.onOpenModal = this.onOpenModal.bind(this);
         this.onCloseModal = this.onCloseModal.bind(this);
-        this.profilePhotoUpload = React.createRef(); 
+        // this.profilePhotoUpload = React.createRef(); 
         this.handleProfileSubmit = this.handleProfileSubmit.bind(this);
         this.handleProfileFile = this.handleProfileFile.bind(this);
-        this.showProfilePhotoUpload = this.showProfilePhotoUpload.bind(this);
+        // this.showProfilePhotoUpload = this.showProfilePhotoUpload.bind(this);
 
     }
 
     onOpenModal() {
-        this.setState({ isModalOpen: true });
+        this.setState({ isProfileModalOpen: true });
     };
 
     onCloseModal() {
-        this.setState({ isModalOpen: false });
+        this.setState({ isProfileModalOpen: false });
     };
 
     handleProfileFile(e) {
@@ -30,6 +30,7 @@ class ProfilePhoto extends React.Component {
         if (file) {
             fileReader.readAsDataURL(file);
         }
+        this.setState({ isProfileModalOpen: true });
     }
 
     handleProfileSubmit(e) {
@@ -39,11 +40,11 @@ class ProfilePhoto extends React.Component {
             formData.append('user[profile_picture]', this.state.profileImg);
             this.props.updateUserPhoto(this.props.user.id, formData);
         }
-        this.setState({ isModalOpen: false });
+        this.setState({ isProfileModalOpen: false });
     }
-    showProfilePhotoUpload() {
-        this.profilePhotoUpload.current.click();
-    }
+    // showProfilePhotoUpload() {
+    //     this.profilePhotoUpload.current.click();
+    // }
 
 
 
@@ -51,18 +52,18 @@ class ProfilePhoto extends React.Component {
 
         const editButton = this.props.isEditable ? (
             <div className='edit-profile-picture-btn' >
-                <input type="file" accept="image/*" id="input" onChange={this.handleProfileFile} ref={this.profilePhotoUpload} />
+                <input type="file" accept="image/*" id="input" onChange={this.handleProfileFile} />
                 <div className="profile-img-input-label">
                     <label className="image-upload-label" htmlFor="input">
                         <i className="fas fa-camera fa-lg"></i>
-                        <div className="image-upload-label-text" onClick={this.showProfilePhotoUpload}>&nbsp;Update</div>
+                        <div className="image-upload-label-text">&nbsp;Update</div>
                     </label>
                 </div> 
             </div>
         ) : null;
-        const isModalOpen = this.state.isModalOpen;
-        const modal = isModalOpen ? (
-            <Modal open={isModalOpen} onClose={this.onCloseModal} classNames={{
+        const isProfileModalOpen = this.state.isProfileModalOpen;
+        const modal = isProfileModalOpen ? (
+            <Modal open={isProfileModalOpen} onClose={this.onCloseModal} classNames={{
                 overlay: 'react-responsive-modal-overlay',
                 modal: 'react-responsive-modal-modal profile-picture-modal',
                 modalCenter: 'react-responsive-modal-modalCenter profile-picture-modal-center',
@@ -73,7 +74,6 @@ class ProfilePhoto extends React.Component {
                     <button className="profile-img-upload-btn" onClick={this.handleProfileSubmit}>
                         <i className="fas fa-camera fa-2x">&nbsp;Submit Pofile Picture</i>
                     </button>
-
                 </div>
             </Modal>
         ) : null; 

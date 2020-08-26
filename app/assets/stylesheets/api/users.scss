@@ -132,13 +132,16 @@ img {
   clear: right;
   padding-left: 201px;
   width: 649px;
+  height: 50px;
+  text-align: center;
   display: inline-block;
   color: #1c1e21;
   direction: ltr;
   line-height: 1.34;
   position: relative;
   top:78px;
-  border: 1px solid black;
+  border: 2px solid black;
+  // box-sizing: border-box;
 }
 .profile-header-page-ul {
   list-style: none; 
@@ -149,11 +152,13 @@ img {
   
 }
 .profile-header-page-ul li {
+  font-size: 24px;
   font-family: inherit;
   width: auto;
   float: left;
   margin-right: 20px;
   margin-left: 10px;
+  margin-top: 10px;
   color: #2851A3;
   font-weight: bold;
 }

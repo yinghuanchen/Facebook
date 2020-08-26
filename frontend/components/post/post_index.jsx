@@ -1,5 +1,5 @@
 import React from 'react'; 
-import PostIndexItem from './post_index_item';
+import PostIndexItem from './post_index_item'; 
 class PostIndex extends React.Component {
     constructor(props) {
         super(props); 
@@ -18,16 +18,21 @@ class PostIndex extends React.Component {
     }
 
     render() {
-        if (!this.props.posts) return null;  
+        if (!this.props.posts || !this.props.posts[0]) return null;  
         return (
             <div className="post-index-container">
-                {/* {this.props.posts.map((post,idx) => 
-                    // <PostIndexItem 
-                    //     key={idx} post={post} fetchPost={this.props.fetchPost} 
-                    //     fetchAllComments={this.props.fetchAllComments} 
-                    //     currentUser={this.props.currentUser}
-                    //     />
-                )}  */}
+                {this.props.posts.map((post,idx) => 
+                    <PostIndexItem 
+                        key={idx} post={post} fetchPost={this.props.fetchPost} 
+                        fetchAllComments={this.props.fetchAllComments} 
+                        currentUser={this.props.currentUser}
+                        createComment={this.props.createComment}
+                        authorName={this.props.authors[idx].username}
+                        authorProfilePic={this.props.authors[idx].profilePicture} 
+                        createlike={this.props.createlike}
+                        deletelike={this.props.deletelike}
+                    />
+                )} 
             </div>
            
         )

@@ -68,7 +68,7 @@ class PostForm extends React.Component {
         return (
             <div className="post-form-container">
                 <div className="post-form-holder">
-                    <input type="text" className="post-form-text" placeholder={placeholderText} onClick={this.onOpenModal} />
+                    <textarea className="post-form-text" placeholder={placeholderText} onClick={this.onOpenModal} />
                     {modal}
                 </div>
             </div>

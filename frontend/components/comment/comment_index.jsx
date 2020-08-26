@@ -11,12 +11,15 @@ class CommentIndex extends React.Component {
     }
 
     render() {
-        if (!this.props.comments) return null;
+        if (!this.props.comments || !this.props.comments[0]) return null;
         return (
             <div className="post-index-container">
-                {/* {this.props.comments.map((comment, idx) =>
-                    <CommentIndexItem key={idx} comment={comment} />
-                )} */}
+                <ul className="post-index-container-ul">
+                    {this.props.comments.map((comment, idx) =>
+                        <CommentIndexItem key={idx} comment={comment} 
+                            authorName={this.props.authors[idx].username} authorProfilePic={this.props.authors[idx].profilePicture} />
+                    )}
+                </ul> 
             </div>
         )
     }

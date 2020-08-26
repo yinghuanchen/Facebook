@@ -8,8 +8,8 @@ Rails.application.routes.draw do
       resources :comments, only: [:index]
     end 
     resources :comments, only: [:create, :show, :update, :destroy]
-    resources :likes, only: [:create, :destroy]
-
+    resources :likes, only: [:create] 
+    delete '/likes', to: 'likes#destroy' 
 
     post 'friend_requests/:requestee_id', to: 'friend_requests#create', as: 'friend_requests'
     delete 'friend_requests/:requester_id/:requestee_id', to: 'friend_requests#destroy', as: 'friend_request'
