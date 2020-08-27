@@ -5,14 +5,14 @@ class FriendRequestNotification extends React.Component {
     constructor(props) {
         super(props);
     }
-    
+
     // componentDidUpdate(prevProps) {
     //     if (this.props.currentUser.requesterIds.length !== prevProps.requesterIds.length) {
 
     //     }
     // }
     render() {
-         debugger 
+         //debugger 
         if (!this.props.requesters || !this.props.requesters[0]) return null;  
         const colorClass = this.props.requesters.length === 0 ? "" : "friend-noitification";
         return(

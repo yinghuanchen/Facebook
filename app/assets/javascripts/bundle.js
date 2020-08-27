@@ -950,7 +950,7 @@ var FriendRequestNotification = /*#__PURE__*/function (_React$Component) {
   _createClass(FriendRequestNotification, [{
     key: "render",
     value: function render() {
-      debugger;
+      //debugger 
       if (!this.props.requesters || !this.props.requesters[0]) return null;
       var colorClass = this.props.requesters.length === 0 ? "" : "friend-noitification";
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
