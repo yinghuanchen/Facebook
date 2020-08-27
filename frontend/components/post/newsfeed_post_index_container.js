@@ -11,8 +11,8 @@ const mSTP = (state) => {
         const dateB = new Date(b.createdAt);
         return dateA > dateB ? -1 : 1;
     });
-    const authors = !posts || posts.some(post => !post) ? null : posts.map(post => state.entities.users[post.authorId]);
-    const walls = !posts || posts.some(post => !post) ? null : posts.map(post => state.entities.users[post.wallId]);
+    const authors = !posts || posts.some(post => !post) || Object.values(state.entities.users).length < 2 ? null : posts.map(post => state.entities.users[post.authorId]);
+    const walls = !posts || posts.some(post => !post) || Object.values(state.entities.users).length < 2 ? null : posts.map(post => state.entities.users[post.wallId]);
     const currentUser = state.entities.users[state.session.id];
     return ({
         indexType: 'newsfeed',

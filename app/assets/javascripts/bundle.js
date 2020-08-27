@@ -950,7 +950,7 @@ var FriendRequestNotification = /*#__PURE__*/function (_React$Component) {
   _createClass(FriendRequestNotification, [{
     key: "render",
     value: function render() {
-      // debugger 
+      debugger;
       if (!this.props.requesters || !this.props.requesters[0]) return null;
       var colorClass = this.props.requesters.length === 0 ? "" : "friend-noitification";
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -969,6 +969,14 @@ var FriendRequestNotification = /*#__PURE__*/function (_React$Component) {
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "friend-request-notification-li"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+          id: "friend-request-notification-name",
+          to: "/users/".concat(requester.id)
+        }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          src: requester.profilePicture,
+          alt: "",
+          id: "img",
+          className: "img"
+        })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
           id: "friend-request-notification-name",
           to: "/users/".concat(requester.id)
         }, requester.username), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
@@ -1005,8 +1013,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var mSTP = function mSTP(state) {
+  // debugger 
   var currentUser = state.entities.users[state.session.id];
-  var requesters = state.entities.users.length < 2 ? null : currentUser.requesterIds.map(function (requesterId) {
+  var requesters = Object.values(state.entities.users).length < 3 ? null : currentUser.requesterIds.map(function (requesterId) {
     return state.entities.users[requesterId];
   });
   return {
@@ -1583,12 +1592,12 @@ var mSTP = function mSTP(state) {
   });
   var authors = !posts || posts.some(function (post) {
     return !post;
-  }) ? null : posts.map(function (post) {
+  }) || Object.values(state.entities.users).length < 2 ? null : posts.map(function (post) {
     return state.entities.users[post.authorId];
   });
   var walls = !posts || posts.some(function (post) {
     return !post;
-  }) ? null : posts.map(function (post) {
+  }) || Object.values(state.entities.users).length < 2 ? null : posts.map(function (post) {
     return state.entities.users[post.wallId];
   });
   var currentUser = state.entities.users[state.session.id];
@@ -2167,7 +2176,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 
 var mSTP = function mSTP(state, ownProps) {
-  // debugger
   var posts = Object.values(state.entities.posts).sort(function (a, b) {
     var dateA = new Date(a.createdAt);
     var dateB = new Date(b.createdAt);
@@ -2175,12 +2183,12 @@ var mSTP = function mSTP(state, ownProps) {
   });
   var authors = posts.some(function (post) {
     return !post;
-  }) ? null : posts.map(function (post) {
+  }) || Object.values(state.entities.users).length < 2 ? null : posts.map(function (post) {
     return state.entities.users[post.authorId];
   });
   var walls = posts.some(function (post) {
     return !post;
-  }) ? null : posts.map(function (post) {
+  }) || Object.values(state.entities.users).length < 2 ? null : posts.map(function (post) {
     return state.entities.users[post.wallId];
   });
   var currentUser = state.entities.users[state.session.id];
@@ -2642,7 +2650,7 @@ var LogInForm = /*#__PURE__*/function (_React$Component) {
         className: "welcome-page"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
         className: "logo"
-      }, "Facebook"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
+      }, "facebook"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", {
         className: "welcome-text"
       }, "Connecting friends!")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "errors-and-login"
@@ -4135,8 +4143,7 @@ var FriendListItem = /*#__PURE__*/function (_React$Component) {
   _createClass(FriendListItem, [{
     key: "render",
     value: function render() {
-      var friend = this.props.friend; // debugger 
-
+      var friend = this.props.friend;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
         className: "friend-list-item"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -4254,7 +4261,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var mSTP = function mSTP(state, ownProps) {
   var user = state.entities.users[ownProps.match.params.userId];
-  var friendList = user ? user.friendIds.map(function (friendId) {
+  var friendList = user && Object.values(state.entities.users).length > 2 ? user.friendIds.map(function (friendId) {
     return state.entities.users[friendId];
   }) : null;
   return {

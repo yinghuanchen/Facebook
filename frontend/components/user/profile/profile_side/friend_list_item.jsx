@@ -8,7 +8,6 @@ class FriendListItem extends React.Component {
 
     render() {
         const {friend} = this.props;
-        // debugger 
         return (
             <li className="friend-list-item">
                 <div className="friend-list-item-img-container">

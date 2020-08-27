@@ -6,14 +6,13 @@ import { fetchAllComments, createComment} from '../../actions/comment_action';
 import { fetchUser } from '../../actions/user_action';
 
 const mSTP = (state, ownProps) => {
-    // debugger
     const posts = Object.values(state.entities.posts).sort((a, b) => {
         const dateA = new Date(a.createdAt);
         const dateB = new Date(b.createdAt);
         return dateA > dateB ? -1 : 1;
     });
-    const authors = posts.some(post => !post) ? null : posts.map(post => state.entities.users[post.authorId]);
-    const walls = posts.some(post => !post) ? null : posts.map(post => state.entities.users[post.wallId]);
+    const authors = posts.some(post => !post) || Object.values(state.entities.users).length < 2 ? null : posts.map(post => state.entities.users[post.authorId]);
+    const walls = posts.some(post => !post) || Object.values(state.entities.users).length < 2 ? null : posts.map(post => state.entities.users[post.wallId]);
     const currentUser = state.entities.users[state.session.id];
     return ({
         indexType: 'wall',

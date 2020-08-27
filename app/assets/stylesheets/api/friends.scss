@@ -10,23 +10,43 @@
     color: #FF0000;
 }
 #friend-dropdown-content {
-    width: 300px; 
+    width: 350px; 
 }
 
 .friend-request-notification-li {
     display: flex;
     flex-wrap: nowrap;
     background: white;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 18px;
+    text-align: left;
+    // margin-right: 10px;
 }
 #friend-request-notification-name {
     color: #286cd1; 
+    margin-top: 10px;
+    // margin-left:5px;
+    font-size: 18px;
 }
 #friend-request-notification-name:hover {
     background: white;
 }
+#friend-request-notification-name img {
+    border-radius: 50%;
+    overflow: hidden;
+    display: block;
+    height: 40px;
+    width: 40px; 
+    max-width:100%;
+    max-height:100%;
+    object-fit: scale-down;
+    border: 1px solid #696969;
+    margin:0px;
+}
 .friend-request-notification-text {
-    text-align: center;
-    padding-top: 15px;
+    text-align: left;
+    padding-top: 10px;
 }
 .search-bar-input {
     margin-left: 10px; 

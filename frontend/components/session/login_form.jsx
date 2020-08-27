@@ -85,7 +85,7 @@ class LogInForm extends React.Component {
             <div className="splash-page">
                 <div className="welcome-login-page">
                     <div className="welcome-page">
-                        <h1 className="logo">Facebook</h1>
+                        <h1 className="logo">facebook</h1>
                         <h2 className="welcome-text">Connecting friends!</h2>
                     </div>
                     <div className="errors-and-login">

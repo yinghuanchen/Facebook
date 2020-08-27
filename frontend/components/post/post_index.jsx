@@ -18,7 +18,7 @@ class PostIndex extends React.Component {
     }
 
     render() {
-        if (!this.props.posts || !this.props.posts[0] || !this.props.authors || !this.props.authors[0] || !this.props.walls || !this.props.walls[0]) return null;  
+        if (!this.props.posts || !this.props.posts[0] || !this.props.authors || !this.props.authors[0] || !this.props.walls || !this.props.walls[0]) return null;
         return (
             <div className="post-index-container">
                 {this.props.posts.map((post,idx) => 

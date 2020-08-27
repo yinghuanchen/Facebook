@@ -4,8 +4,9 @@ import  FriendRequestNotification from './friend_request_notification';
 import { fetchUser } from './../../actions/user_action';
 
 const mSTP = (state) => {
+    // debugger 
     const currentUser = state.entities.users[state.session.id];
-    const requesters = state.entities.users.length < 2 ? null : currentUser.requesterIds.map(requesterId => 
+    const requesters = Object.values(state.entities.users).length < 3 ? null : currentUser.requesterIds.map(requesterId => 
         state.entities.users[requesterId] 
     );
     return ({
