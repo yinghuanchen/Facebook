@@ -169,8 +169,9 @@
 
 .newsfeed {
   margin-top:50px;
-  display: flex;
-  flex-wrap: nowrap;
+  display: inline-block;
+  /* display: flex;
+  flex-wrap: nowrap; */
 }
 
 .friend-notice-dropbtn {
@@ -182,6 +183,7 @@
 .newsfeed-left {
   margin-left: 50px;
   width: 300px;
+  height: 100%;
 }
 .newsfeed-right {
   width: 500px;
@@ -211,9 +213,7 @@
   flex-wrap: wrap;
 }
 
-.img-upload-btn {
-  cursor: pointer;
-}
+
 
 .newsfeed-user-img-container {
   margin-right: 20px;

@@ -1,6 +1,7 @@
 import React from 'react';  
 import CommentIndexContainer from './../comment/comment_index_container'; 
 import CommentCreateForm from './../comment/comment_create_form';
+import { Link, NavLink} from 'react-router-dom';
 class PostIndex extends React.Component {
     constructor(props) {
         super(props);
@@ -38,18 +39,34 @@ class PostIndex extends React.Component {
         const likeCount = this.props.post.likerIds.length; 
         const likedCountUnit = likeCount < 2 ? "like": "likes";
         const deleteButton = this.props.isDeletable ? (<button className="delete-post-btn" onClick={this.handleDelete}><i className="fas fa-times fa-lg"></i></button>) : null;
+        const wallInformation = this.props.wall.id === this.props.author.id ? (null) : (
+            <div className="post-index-item-author-information post-index-item-wall-information">
+                <i className="fas fa-caret-right"></i>
+                <div className="post-index-item-author-img-container">
+                    <img className="post-index-item-author-img"
+                        src={this.props.wall.profilePicture} alt="" id="img" className="img" />
+                </div>
+                <div className="post-index-item-author-name">
+                    {/* <span>{this.props.wall.username}</span> */}
+                    <Link to={`users/${this.props.wall.id}`}><span>{this.props.wall.username}</span></Link>
+                </div>  
+            </div>  
+        );
+
         return (
             <div className="post-index-item-container"> 
                 <div className="post-index-item-body">
-                    <div className="post-index-item-author-information">
+                    <div className="post-index-item-author-information">                   
                         <div className="post-index-item-author-img-container">
-                            <img className="post-index-item-author-img" 
-                                src={this.props.authorProfilePic} alt="" id="img" className="img"/>
+                            <img className="post-index-item-author-img"
+                                src={this.props.authorProfilePic} alt="" id="img" className="img" />
                         </div>
                         <div className="post-index-item-author-name">
-                            <span>{this.props.authorName}</span>
-                        </div>  
-                        {deleteButton}
+                            
+                            <Link to={`users/${this.props.author.id}`}><span>{this.props.authorName}</span></Link>
+                        </div> 
+                        {deleteButton} 
+                        {wallInformation}
                     </div>
                     <div className="post-index-item-body-text">
                         <p>{this.props.post.body}</p>

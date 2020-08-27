@@ -28,27 +28,47 @@
     text-align: center;
     padding-top: 15px;
 }
-
 .search-bar-input {
-    height: 40px; 
-    width: 250px;
     margin-left: 10px; 
+    position: relative;
+    top: -45px;
+    left: 50px;
+}
+.search-bar-input-text {
+    height: 40px; 
+    width: 300px;
     border-radius: 5px;
     font-size: 20px;
-    position: relative;
-    top: -9px;
+}
+.search-bar-input-btn {
+  background: #f5f6f7;
+  border: none;
+    border-radius: 0 2px 2px 0;
+    bottom: 0;
+    cursor: pointer;
+    display: block;
+    line-height: 1;
+    padding: 0 16px;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    z-index: 1;
+}
+.search-bar-input-icon {
+   
 }
 .search-bar-drop-down {
     position: relative;
-    left: 53px;
-    top: -10px;
+    left: 60px;
+    top: -45px;
     background: white; 
     font-size: 20px;
     // border-bottom: 1px solid black;
     // border-left:1px solid black;
     // border-right:1px solid black;
     border: 1px solid black;
-    width: 250px;
+    width: 242px;
     z-index: 111;
 }
 .search-bar-drop-down a {

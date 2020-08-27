@@ -60,7 +60,13 @@ class PostForm extends React.Component {
             }}>
                 <form className="post-form" onSubmit={this.handleSubmit}> 
                     <span><i className="fas fa-pencil-alt fa-lg"></i> Create Post</span>
-                    <textarea className="post-form-text" placeholder={placeholderText} onChange={this.handleUpdate}/>
+                    <div className="post-form-img-container"> 
+                        <img className="post-form-img"
+                            src={this.props.currentUser.profilePicture} alt="" id="img" className="img" />
+                        <input type='text' className="post-form-text" placeholder={placeholderText} onChange={this.handleUpdate} />
+                    </div>
+                    
+                    {/* <span className="floating-label">{placeholderText}</span> */}
                     {/* <input className="post-form-submit-btn" type="button" value="Post"/> */}
                     <button className="post-form-submit-btn">Post</button>
                 </form>               
@@ -69,7 +75,13 @@ class PostForm extends React.Component {
         return (
             <div className="post-form-container">
                 <div className="post-form-holder">
-                    <textarea className="post-form-text" placeholder={placeholderText} onClick={this.onOpenModal} />
+                    <div className="post-form-img-container">
+                        <img className="post-form-img"
+                            src={this.props.currentUser.profilePicture} alt="" id="img" className="img" />
+                        <input type='text' className="post-form-text" placeholder={placeholderText} onClick={this.onOpenModal} />
+                        {/* <span className="floating-label">{placeholderText}</span> */}
+
+                    </div>    
                 </div>
                 {modal}
             </div>

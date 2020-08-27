@@ -18,7 +18,7 @@ class PostIndex extends React.Component {
     }
 
     render() {
-        if (!this.props.posts || !this.props.posts[0] || !this.props.authors || !this.props.authors[0]) return null;  
+        if (!this.props.posts || !this.props.posts[0] || !this.props.authors || !this.props.authors[0] || !this.props.walls || !this.props.walls[0]) return null;  
         return (
             <div className="post-index-container">
                 {this.props.posts.map((post,idx) => 
@@ -29,9 +29,11 @@ class PostIndex extends React.Component {
                         createComment={this.props.createComment}
                         authorName={this.props.authors[idx].username}
                         authorProfilePic={this.props.authors[idx].profilePicture} 
+                        author={this.props.authors[idx]}
                         createlike={this.props.createlike}
                         deletelike={this.props.deletelike}
                         deletePost={this.props.deletePost}
+                        wall={this.props.walls[idx]}
                         isDeletable={Boolean(this.props.currentUser.id === post.wallId || this.props.currentUser.id === this.props.authors[idx].id)}
                     />
                 )} 

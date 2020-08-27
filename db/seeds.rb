@@ -8,42 +8,42 @@
 User.delete_all 
 
 emily = User.create!(
-  username: 'Emily',
+  username: 'Emily Chen',
   email: 'emily123@appacademy.com',
   gender: 'Female',
   password: '123456'
 )
 
 mandy = User.create!(
-   username: 'Mandy',
+   username: 'Mandy Chang',
   email: 'mandy123@appacademy.com',
   gender: 'Female',
   password: '123456'
 )
 
 chris = User.create!(
-   username: 'Chris',
+   username: 'Chris Yeh',
   email: 'chris456@appacademy.com',
   gender: 'Male',
   password: '123456'
 )
 
 jack = User.create!(
-  username: 'Jack',
+  username: 'Jack Wu',
   email: 'jack@email',
   gender: 'Male',
   password: '123456'
 )
 
 jenny = User.create!(
-   username: 'jenny',
+   username: 'Jenny Shen',
   email: 'jenny@email',
   gender: 'Female',
   password: '123456'
 )
 
 mike = User.create!(
-  username: 'jenny',
+  username: 'Mike Kuo',
   email: 'mike@email',
   gender: 'Male',
   password: '123456'
@@ -59,19 +59,19 @@ demo1 = User.create!(
 )
 
 demo2 = User.create!(
-   username: 'Jack',
+   username: 'Jack Chen',
   email: 'jackie@email',
   gender: 'Male',
   password: '123456'
 )
 
 demo3 = User.create!(
-   username: 'Amy',
+   username: 'Amy Fan',
   email: 'amy@email',
   gender: 'Female',
   password: '123456'
 )
-
+Friendship.delete_all 
 # Friendship.create!(
 #   user_first_id: chris.id, 
 #   user_second_id: emily.id

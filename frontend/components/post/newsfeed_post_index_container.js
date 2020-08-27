@@ -12,6 +12,7 @@ const mSTP = (state) => {
         return dateA > dateB ? -1 : 1;
     });
     const authors = !posts || posts.some(post => !post) ? null : posts.map(post => state.entities.users[post.authorId]);
+    const walls = !posts || posts.some(post => !post) ? null : posts.map(post => state.entities.users[post.wallId]);
     const currentUser = state.entities.users[state.session.id];
     return ({
         indexType: 'newsfeed',
@@ -19,6 +20,7 @@ const mSTP = (state) => {
         currentUser: state.entities.users[state.session.id],
         posts, 
         authors,
+        walls,
         currentUser
     })
 };

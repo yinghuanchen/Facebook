@@ -6,6 +6,7 @@ import UserShowContainer from './user/user_show_container';
 import NewsFeedContainer from './newsfeed/newsfeed_container';
 import NavBarContainer from './navbar/navbar_container';
 import UserIndexContainer from './user/user_index_container';
+import SearchResultContainer from './search_result/search_result_container';
 
 const App = () => (
     <div className="app-container">
@@ -14,6 +15,7 @@ const App = () => (
         <AuthRoute exact path="/" component={LogInFormContainer} />
         <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
         <ProtectedRoute exact path="/newsfeed" component={NewsFeedContainer} />
+        <ProtectedRoute path="/search" component={SearchResultContainer}/>
     </div>
 );
 

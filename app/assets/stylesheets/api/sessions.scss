@@ -228,8 +228,41 @@
   border-right: 10px solid #c51244;
   left: -10px; 
   position: absolute; 
-  
 }
+.signin-errors-div {
+  background: #c51244;
+  padding: 10px;
+  border-radius: 5px;
+  position: absolute; 
+  display: inline-block;
+  box-shadow: 1px 1px 1px #aaaaaa;
+  margin: 10px 0px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  width: 300px;
+  max-height: 80px;
+  text-align: center;
+  left: 380px;
+  top: 120px;
+}
+.signup-errors {
+    list-style: none; 
+    list-style-type: none;
+    list-style-position: inside;
+    margin: 5px;
+}
+.signin-errors-div:before {
+  content: ''; 
+  width: 0; 
+  height: 0; 
+  border-bottom: 10px solid transparent;
+  border-top: 10px solid transparent;
+  border-right: 10px solid #c51244;
+  left: -10px; 
+  position: absolute; 
+}
+
 // .errors-and-login {
 //     display: flex; 
 // }

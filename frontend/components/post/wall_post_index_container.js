@@ -13,6 +13,7 @@ const mSTP = (state, ownProps) => {
         return dateA > dateB ? -1 : 1;
     });
     const authors = posts.some(post => !post) ? null : posts.map(post => state.entities.users[post.authorId]);
+    const walls = posts.some(post => !post) ? null : posts.map(post => state.entities.users[post.wallId]);
     const currentUser = state.entities.users[state.session.id];
     return ({
         indexType: 'wall',
@@ -20,6 +21,7 @@ const mSTP = (state, ownProps) => {
         wall: state.entities.users[ownProps.match.params.userId],
         posts, 
         authors, 
+        walls,
         currentUser
 
     })

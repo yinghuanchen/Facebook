@@ -4,3 +4,23 @@
 .like {
     color: #286cd1; 
 }
+
+.search-result-container {
+    border: 1px solid black; 
+    border-radius: 10px;
+    height: 100%;
+    padding: 20px;
+}
+.search-result-ul {
+    margin-top: 10px;
+}
+.search-result-item {
+    display: flex;
+    flex-wrap: wrap;
+}
+.search-result-item-link {
+    position: relative; 
+    left: 50px;
+    top: 30px;
+    font-size: 24px;
+}
