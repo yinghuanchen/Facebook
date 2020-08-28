@@ -23,6 +23,7 @@ class NavBar extends React.Component {
                 {/* <button className="logout-button" >Log out</button> */}
                 <SearchBarContainer />
                 {friendNotification} 
+                {/* <button><i className="fas fa-bell fa-2x"></i></button> */}
                 <div className="dropdown">
                     <button className="dropbtn"><i className="arrow down"></i></button>
                     <div className="dropdown-content">

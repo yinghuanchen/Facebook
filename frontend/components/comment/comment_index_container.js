@@ -7,11 +7,11 @@ import { fetchPost} from './../../actions/post_action';
 const mSTP = (state, ownProps) => {
     //debugger
     const post = ownProps.post;
-    const comments = ownProps.post.commentIds.map(commentId => state.entities.comments[commentId]).sort((a, b) => {
+    const comments = state.entities.comments ? ownProps.post.commentIds.map(commentId => state.entities.comments[commentId]).sort((a, b) => {
             const dateA = new Date(a.createdAt);
             const dateB = new Date(b.createdAt);
             return dateA < dateB ? -1 : 1;
-    });
+    }):null;
     const authors = !comments || comments.some(comment => !comment) ? null: comments.map(comment => state.entities.users[comment.authorId]);
     const currentUser = state.entities.users[state.session.id];
     return ({

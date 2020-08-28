@@ -2,7 +2,7 @@ import PostIndex from './post_index';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { fetchAllPosts, fetchPost, createlike, deletelike, deletePost} from '../../actions/post_action';
-import { fetchAllComments } from '../../actions/comment_action';
+import { fetchAllComments, createComment } from '../../actions/comment_action';
 import { fetchUser } from '../../actions/user_action';
 
 const mSTP = (state) => {
@@ -32,7 +32,8 @@ const mDTP = dispatch => ({
     fetchUser: (userId) => dispatch(fetchUser(userId)), 
     createlike: (like) => dispatch(createlike(like)), 
     deletelike: (like) => dispatch(deletelike(like)), 
-    deletePost: (postId) => dispatch(deletePost(postId))
+    deletePost: (postId) => dispatch(deletePost(postId)), 
+    createComment: (comment) => dispatch(createComment(comment))
 });
 
 export default withRouter(connect(mSTP, mDTP)(PostIndex));

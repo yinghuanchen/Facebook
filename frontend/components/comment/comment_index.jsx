@@ -23,6 +23,7 @@ class CommentIndex extends React.Component {
                 <ul className="post-index-container-ul">
                     {this.props.comments.map((comment, idx) =>
                         <CommentIndexItem key={idx} comment={comment} 
+                            authorId={this.props.authors[idx].id}
                             authorName={this.props.authors[idx].username} 
                             authorProfilePic={this.props.authors[idx].profilePicture} 
                             deleteComment={this.props.deleteComment} 

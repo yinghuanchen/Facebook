@@ -27,7 +27,7 @@
 
 .navbar-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   box-sizing: border-box; 
   border: none;
   position: static;
@@ -37,13 +37,21 @@
   background: #2851A3;
   padding-top: 0;
   padding-left: 100px;
+  padding-right: 200px;
   margin: 0 0 0 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 5;
+  /* opacity: 1; */
+  /* position: fixed; */
 }
 
 .navbar-container-container {
   margin: 0;
   padding: 0;
   border: 0;
+  overflow: hidden;
 }
 .fa-facebook-square {
   margin: 0;
@@ -76,7 +84,7 @@
   cursor: pointer;
 }
 .friend-dropdown{
-  z-index: 101;
+  z-index: 6;
 }
 .friend-button {
   font-family: inherit;
@@ -85,11 +93,12 @@
   display: inline-block;
   border: #4b4f56;;
   padding: 12px; 
-   z-index: 101;
+   z-index: 6;
   position: relative;
   left: 600px;
   top: -40px;
   border-radius: 5px;
+  cursor: pointer;
 }
 .friend-drop-down-content {
   font-family: inherit;
@@ -168,7 +177,9 @@
 }
 
 .newsfeed {
-  margin-top:50px;
+  font-family: inherit;
+  margin-top:100px;
+  margin-left: 50px;
   display: inline-block;
   /* display: flex;
   flex-wrap: nowrap; */

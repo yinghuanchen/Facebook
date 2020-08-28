@@ -17,7 +17,7 @@ class  FriendList extends React.Component {
         )
         return (          
             <div className="friend-list-container">
-                <span className="friend-list-container-name"><i class="fas fa-user-friends"></i>&nbsp;Friends</span>
+                <span className="friend-list-container-name"><i className="fas fa-user-friends"></i>&nbsp;Friends</span>
                 {friendListItems}
             </div>
         )

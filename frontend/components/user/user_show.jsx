@@ -9,11 +9,15 @@ class UserShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchAllUsers(); 
+        window.scrollTo(0, 0);
     }
 
     componentDidUpdate(prevProps) {
         if (this.props.wall !== prevProps.wall) {
             this.setState({wallId: this.props.wall.id}) 
+        }
+        if (this.props.location !== prevProps.location) {
+            window.scrollTo(0, 0)
         }
     }
 

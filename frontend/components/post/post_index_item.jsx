@@ -1,4 +1,4 @@
-import React from 'react';  
+import React, { useRef } from 'react';  
 import CommentIndexContainer from './../comment/comment_index_container'; 
 import CommentCreateForm from './../comment/comment_create_form';
 import { Link, NavLink} from 'react-router-dom';
@@ -9,6 +9,8 @@ class PostIndex extends React.Component {
         this.state = {like}; 
         this.handleToggle = this.handleToggle.bind(this);
         this.handleDelete = this.handleDelete.bind(this); 
+        // this.myRef = React.createRef();
+        // this.scrollToMyRef = this.scrollToMyRef.bind(this);
     }
     componentDidMount() {
         //this.props.fetchPost(this.props.post.id);
@@ -28,6 +30,9 @@ class PostIndex extends React.Component {
         this.setState({like: !this.state.like}); 
         //this.fetchPost(this.post.id)
     }
+    // scrollToMyRef() {
+    //     window.scrollTo(0, this.myRef.current.offsetTop)
+    // }
 
     render () {
         // debugger
@@ -48,7 +53,7 @@ class PostIndex extends React.Component {
                 </div>
                 <div className="post-index-item-author-name">
                     {/* <span>{this.props.wall.username}</span> */}
-                    <Link to={`users/${this.props.wall.id}`}><span>{this.props.wall.username}</span></Link>
+                    <Link to={`/users/${this.props.wall.id}`}><span>{this.props.wall.username}</span></Link>
                 </div>  
             </div>  
         );
@@ -58,18 +63,18 @@ class PostIndex extends React.Component {
                 <div className="post-index-item-body">
                     <div className="post-index-item-author-information">                   
                         <div className="post-index-item-author-img-container">
-                            <img className="post-index-item-author-img"
-                                src={this.props.authorProfilePic} alt="" id="img" className="img" />
+                            <Link to={{ pathname: `/users/${this.props.author.id}` }}><img className="post-index-item-author-img"
+                                src={this.props.authorProfilePic} alt="" id="img" className="img" /></Link>
+                            
                         </div>
                         <div className="post-index-item-author-name">
-                            
-                            <Link to={`users/${this.props.author.id}`}><span>{this.props.authorName}</span></Link>
+                            <Link to={{pathname:`/users/${this.props.author.id}`}}><span>{this.props.authorName}</span></Link>
+                            {deleteButton} 
                         </div> 
-                        {deleteButton} 
                         {wallInformation}
                     </div>
                     <div className="post-index-item-body-text">
-                        <p>{this.props.post.body}</p>
+                        <div>{this.props.post.body}</div>
                     </div> 
                     <span className="like-count">{`${likeCount} ${likedCountUnit}`}</span>
                 </div>
@@ -78,7 +83,7 @@ class PostIndex extends React.Component {
                         <i className={likeClass}></i>
                         <span className={likeFontClass}>Like</span>
                     </button>
-                    <button className="post-index-item-btn">
+                    <button className="post-index-item-btn" onClick={this.scrollToMyRef}>
                         <i className="far fa-comment-alt fa-2x"></i>
                         <span>Comment</span>
                     </button>
@@ -86,10 +91,10 @@ class PostIndex extends React.Component {
                 <div className="post-index-item-comment-index">
 
                 </div>
-                <CommentIndexContainer post={this.props.post}/>
+                <CommentIndexContainer post={this.props.post} />                
                 <CommentCreateForm isCommentable={isCommentable} postId={this.props.post.id} 
                     createComment={this.props.createComment}
-                    fetchPost={this.props.fetchPost}/>
+                    fetchPost={this.props.fetchPost} />
             </div>
         )
        

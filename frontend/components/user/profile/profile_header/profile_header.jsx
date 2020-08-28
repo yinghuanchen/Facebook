@@ -28,15 +28,15 @@ class ProfileHeader extends React.Component {
             <FriendRequestAcceptDeclineContainer userId={this.props.user.id} />
         </div>);
         const isEditable = this.props.currentUser.id === this.props.user.id ? true : false;
-       
+        const ulClass = this.props.currentUser.id === this.props.user.id ? "author-profile-header" : "wall-profile-header"; 
         return (
             <div className="profile-header-page">
                 <CoverPhoto user={this.props.user} isEditable={isEditable} updateUserPhoto={this.props.updateUserPhoto} />
                 <ProfilePhoto user={this.props.user} isEditable={isEditable} updateUserPhoto={this.props.updateUserPhoto} />
                 <div className="profile-username-holder">
                     <span>{this.props.user.username}</span>
-                </div><div className="profile-header-page-ul-container">
-                    <ul className="profile-header-page-ul clearfix">
+                </div><div className={`profile-header-page-ul-container  ${ulClass}`}>
+                    <ul className={`profile-header-page-ul clearfix`}>
                         <li>Timeline</li>
                         <li>About</li>
                         <li>Friends</li>

@@ -29,6 +29,14 @@ class NewsFeed extends React.Component {
                         <li>
                             <Link to="/newsfeed"><i className="far fa-newspaper"></i>&nbsp;&nbsp;&nbsp;News Feed</Link>
                         </li>
+                        <br/>
+                        <li>
+                            <Link to="/newsfeed"><i className="fab fa-facebook-messenger">&nbsp;&nbsp;&nbsp;&thinsp;Messanger</i></Link>
+                        </li>
+                        <br/>
+                        <li>
+                            <Link to="/newsfeed"><i className="fas fa-tv"></i>&nbsp;&nbsp;&nbsp;Watch</Link>
+                        </li>
                     </ul>
                 </div>
                 <div className="newsfeed-right">

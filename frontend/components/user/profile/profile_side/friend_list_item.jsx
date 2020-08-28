@@ -11,8 +11,7 @@ class FriendListItem extends React.Component {
         return (
             <li className="friend-list-item">
                 <div className="friend-list-item-img-container">
-                    <img src={friend.profilePicture} alt="" />
-                    <Link to={`/users/${friend.id}`} ></Link>
+                    <Link to={`/users/${friend.id}`}><img src={friend.profilePicture} alt="" /></Link>
                 </div>
                 <Link className="friend-list-item-link" to={`/users/${friend.id}`} >{friend.username}</Link>
             </li>

@@ -59,13 +59,17 @@ class PostForm extends React.Component {
                 closeButton: 'react-responsive-modal-closeButton post-form-modal-btn',
             }}>
                 <form className="post-form" onSubmit={this.handleSubmit}> 
-                    <span><i className="fas fa-pencil-alt fa-lg"></i> Create Post</span>
-                    <div className="post-form-img-container"> 
-                        <img className="post-form-img"
-                            src={this.props.currentUser.profilePicture} alt="" id="img" className="img" />
-                        <input type='text' className="post-form-text" placeholder={placeholderText} onChange={this.handleUpdate} />
+                    <span><i className="fas fa-pencil-alt fa-lg"></i> Create Post
+                    <i className="fas fa-camera fa-lg"></i> Photo/Video
+                    <i className="fas fa-video fa-lg"></i> Live Video
+                    </span>
+                    <div className="post-form-body">
+                        <div className="post-form-img-container">
+                            <img className="post-form-img"
+                                src={this.props.currentUser.profilePicture} alt="" id="img" className="img" />
+                            <textarea className="post-form-text" placeholder={placeholderText} onChange={this.handleUpdate} />
+                        </div>
                     </div>
-                    
                     {/* <span className="floating-label">{placeholderText}</span> */}
                     {/* <input className="post-form-submit-btn" type="button" value="Post"/> */}
                     <button className="post-form-submit-btn">Post</button>
@@ -74,11 +78,15 @@ class PostForm extends React.Component {
         ) : null; 
         return (
             <div className="post-form-container">
+                <span><i className="fas fa-pencil-alt fa-lg"></i> Create Post
+                <i className="fas fa-camera fa-lg"></i> Photo/Video
+                 <i className="fas fa-video fa-lg"></i> Live Video
+                </span>
                 <div className="post-form-holder">
                     <div className="post-form-img-container">
                         <img className="post-form-img"
                             src={this.props.currentUser.profilePicture} alt="" id="img" className="img" />
-                        <input type='text' className="post-form-text" placeholder={placeholderText} onClick={this.onOpenModal} />
+                        <textarea className="post-form-text" placeholder={placeholderText} onClick={this.onOpenModal} />
                         {/* <span className="floating-label">{placeholderText}</span> */}
 
                     </div>    

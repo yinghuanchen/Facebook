@@ -7,6 +7,7 @@ class SearchBar extends React.Component {
         this.state = {searchInput: '', isDropDownOpen: false};
         this.handleUpdate = this.handleUpdate.bind(this); 
         this.handleClick = this.handleClick.bind(this); 
+        this.toggleMenu = this.toggleMenu.bind(this);
     }
     handleUpdate(e) {
         const inputStr = e.currentTarget.value;
@@ -26,6 +27,9 @@ class SearchBar extends React.Component {
             this.setState({ isDropDownOpen: false, searchInput: this.state.searchInput.trim() });
         } 
     }
+    toggleMenu() {
+        this.setState({ isDropDownOpen: !this.state.isDropDownOpen });
+    }
 
    
 
@@ -37,7 +41,7 @@ class SearchBar extends React.Component {
 
     render () {
         const dropDownContent = this.state.isDropDownOpen && this.props.searchResults ? (
-            <div className="search-bar-drop-down">
+            <div id="search-bar-drop-down" >
                 <ul>
                     {this.props.searchResults.map((user, idx) => 
                         <li key={idx} className="search-bar-item">
@@ -52,7 +56,7 @@ class SearchBar extends React.Component {
         ) : null;
 
         return (
-            <div>
+            <div id="search-bar-container">
                 <Link to='/newsfeed' className="navbar-newsfeed-link"><i className="fab fa-facebook-square fa-2x"></i></Link>
                 <div className="search-bar-input">
                     <input type="text" className="search-bar-input-text" value={this.state.searchInput} onChange={this.handleUpdate} />
