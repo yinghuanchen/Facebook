@@ -122,7 +122,9 @@
   position: relative;
   display: inline-block;
 }
-
+.friend-dropdown {
+  
+}
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;

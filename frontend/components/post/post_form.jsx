@@ -38,10 +38,13 @@ class PostForm extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();  
-        this.props.action({ body: this.state.body, wall_id: this.state.wallId}).then(()=> {
-            this.setState({ isModalOpen: false });
-            this.props.fetchUser(this.props.wall.id); 
-        }); 
+        if (this.state.body) {
+            this.props.action({ body: this.state.body, wall_id: this.state.wallId }).then(() => {
+                this.setState({ isModalOpen: false });
+                this.props.fetchUser(this.props.wall.id);
+            }); 
+        }
+      
     }
 
     render() {  

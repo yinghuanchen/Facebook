@@ -604,7 +604,7 @@ var CommentForm = /*#__PURE__*/function (_React$Component) {
 
       // e.preventDefault();
       // debugger 
-      if (e.which === 13 && this.state.body.trim()) {
+      if (e.which === 13 && this.state.body) {
         var _this$props = this.props,
             postId = _this$props.postId,
             createComment = _this$props.createComment,
@@ -1780,16 +1780,19 @@ var PostForm = /*#__PURE__*/function (_React$Component) {
       var _this2 = this;
 
       e.preventDefault();
-      this.props.action({
-        body: this.state.body,
-        wall_id: this.state.wallId
-      }).then(function () {
-        _this2.setState({
-          isModalOpen: false
-        });
 
-        _this2.props.fetchUser(_this2.props.wall.id);
-      });
+      if (this.state.body) {
+        this.props.action({
+          body: this.state.body,
+          wall_id: this.state.wallId
+        }).then(function () {
+          _this2.setState({
+            isModalOpen: false
+          });
+
+          _this2.props.fetchUser(_this2.props.wall.id);
+        });
+      }
     }
   }, {
     key: "render",
@@ -3370,7 +3373,7 @@ var Friend = /*#__PURE__*/function (_React$Component) {
 
       if (currentUser.friendIds.includes(friendId)) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "dropdown"
+          className: "dropdown friend-dropdown"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "dropbtn friend-button"
         }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("i", {

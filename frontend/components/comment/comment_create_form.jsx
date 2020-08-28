@@ -16,7 +16,7 @@ class CommentForm extends React.Component {
     onKeyPress(e) {
         // e.preventDefault();
         // debugger 
-        if (e.which === 13 && this.state.body.trim()) {     
+        if (e.which === 13 && this.state.body) {     
             const { postId, createComment, fetchPost} = this.props; 
             createComment({ body: this.state.body, post_id: postId }).then(() => {
                 fetchPost(this.props.postId);
