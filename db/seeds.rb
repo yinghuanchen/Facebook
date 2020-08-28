@@ -100,7 +100,7 @@ tom = User.create!(
 
 andy = User.create!(
   username: 'Andy Lee',
-  email: 'tomtom@gmail.com',
+  email: 'andylee@gmail.com',
   gender: 'Male',
   password: '123456'
 )
