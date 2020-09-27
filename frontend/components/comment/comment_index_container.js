@@ -1,4 +1,4 @@
-import { fetchAllComments, deleteComment} from './../../actions/comment_action'; 
+import { fetchAllComments, updateComment, deleteComment, fetchComment} from './../../actions/comment_action'; 
 import { connect } from 'react-redux';
 import CommentIndex from './comment_index';
 import { fetchPost} from './../../actions/post_action';
@@ -23,9 +23,11 @@ const mSTP = (state, ownProps) => {
 }
 
 const mDTP = (dispatch) => ({
-    fetchAllComments: (postId) => dispatch(fetchAllComments(postId)), 
-    deleteComment: (commentId) => dispatch(deleteComment(commentId)), 
-    fetchPost: (postId) => dispatch(fetchPost(postId))
-})
+  fetchAllComments: (postId) => dispatch(fetchAllComments(postId)),
+  updateComment: (comment) => dispatch(updateComment(comment)),
+  deleteComment: (commentId) => dispatch(deleteComment(commentId)),
+  fetchComment: (commentId) => dispatch(fetchComment(commentId)),
+  fetchPost: (postId) => dispatch(fetchPost(postId)),
+});
 
 export default connect(mSTP, mDTP)(CommentIndex); 

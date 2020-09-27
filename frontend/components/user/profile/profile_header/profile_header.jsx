@@ -7,12 +7,49 @@ import ProfilePhoto from './profile_photo';
 class ProfileHeader extends React.Component {
     constructor(props) {
         super(props);
+        this.showTimeLine = this.showTimeLine.bind(this);
+        this.showAbout = this.showAbout.bind(this);
+        this.showFriends = this.showFriends.bind(this);
     }
 
     componentDidMount() {
         this.props.fetchAllUsers();
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.match.params.userId !== prevProps.match.params.userId) {
+            this.props.fetchUser(this.props.match.params.userId ); 
+            this.props.fetchUser(this.props.currentUser.id); 
+        }
+    }
+
+    showTimeLine() {
+        const timeLineContent = document.getElementsByClassName('user-profile-page-content')[0]; 
+        timeLineContent.style.display = ""; 
+        const about = document.getElementsByClassName('user-profile-information')[0];
+        if (about) about.style.display = "none";
+        const friends = document.getElementsByClassName('user-friends-information')[0];
+        if (friends) friends.style.display = "none";
+    }
+
+    showAbout() {
+        const timeLineContent = document.getElementsByClassName('user-profile-page-content')[0];
+        if (timeLineContent) timeLineContent.style.display = "none"; 
+        const about = document.getElementsByClassName('user-profile-information')[0]; 
+        if(about) about.style.display = "inline-block";
+        const friends = document.getElementsByClassName('user-friends-information')[0];
+        if (friends) friends.style.display = "inline-block";
+    }
+
+    showFriends() {
+        const timeLineContent = document.getElementsByClassName('user-profile-page-content')[0];
+        if (timeLineContent) timeLineContent.style.display = "none"; 
+        const about = document.getElementsByClassName('user-profile-information')[0];
+        if (about) about.style.display = "none";
+        const friends = document.getElementsByClassName('user-friends-information')[0];
+        if (friends) friends.style.display = "inline-block";
+    }
+ 
     render() {
         if (!this.props.user || !this.props.currentUser) return null;
         // Check if the currentUser has already send friend request 
@@ -37,9 +74,9 @@ class ProfileHeader extends React.Component {
                     <span>{this.props.user.username}</span>
                 </div><div className={`profile-header-page-ul-container  ${ulClass}`}>
                     <ul className={`profile-header-page-ul clearfix`}>
-                        <li>Timeline</li>
-                        <li>About</li>
-                        <li>Friends</li>
+                        <li onClick={this.showTimeLine}>Timeline</li>
+                        <li onClick={this.showAbout}>About</li>
+                        <li onClick={this.showFriends}>Friends</li>
                     </ul>
                 </div>
                 

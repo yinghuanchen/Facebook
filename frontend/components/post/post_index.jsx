@@ -24,6 +24,8 @@ class PostIndex extends React.Component {
                 {this.props.posts.map((post,idx) => 
                     <PostIndexItem 
                         key={idx} post={post} fetchPost={this.props.fetchPost} 
+                        updatePost={this.props.updatePost}
+                        fetchPost={this.props.fetchPost}
                         fetchAllComments={this.props.fetchAllComments} 
                         currentUser={this.props.currentUser}
                         createComment={this.props.createComment}
@@ -34,7 +36,9 @@ class PostIndex extends React.Component {
                         deletelike={this.props.deletelike}
                         deletePost={this.props.deletePost}
                         wall={this.props.walls[idx]}
-                        isDeletable={Boolean(this.props.currentUser.id === post.wallId || this.props.currentUser.id === this.props.authors[idx].id)}
+                        isEditable={Boolean(this.props.currentUser.id === this.props.authors[idx].id)}
+                        isDeletable={Boolean(this.props.currentUser.id === post.wallId)} 
+                        likers={post.likerIds.map(likerId => this.props.users[likerId])}
                     />
                 )} 
             </div>

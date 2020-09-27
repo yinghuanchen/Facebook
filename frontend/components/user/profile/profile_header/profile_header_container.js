@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import ProfileHeader from './profile_header';
-import { fetchAllUsers, updateUser, updateUserPhoto } from '../../../../actions/user_action';
+import { fetchAllUsers, fetchUser, updateUser, updateUserPhoto } from '../../../../actions/user_action';
 import {withRouter} from 'react-router-dom';
 
 
@@ -17,6 +17,7 @@ const mSTP = (state, ownProps) => {
 
 const mDTP = (dispatch) => ({
     fetchAllUsers: () => dispatch(fetchAllUsers()),
+    fetchUser: (userId) => dispatch(fetchUser(userId)),
     updateUser: (user) => dispatch(updateUser(user)),
     updateUserPhoto: (userId, formData) => dispatch(updateUserPhoto(userId, formData))
 });

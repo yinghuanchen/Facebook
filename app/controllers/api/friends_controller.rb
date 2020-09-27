@@ -1,13 +1,6 @@
 class Api::FriendsController < ApplicationController
     before_action :require_logged_in, only: [:create, :delete]
     def create 
-        # user_first_id, user_second_id = params[:user_first_id].to_i, params[:user_second_id].to_i
-        # if current_user.id == user_first_id || current_user.id ==  user_second_id 
-        #     current_user_id, another_user_id = current_user.id == user_first_id ? user_first_id, user_second_id : user_second_id, user_first_id
-        #     
-        # end
-        # requestee must be current user and will be send in as user_first_id
-        
         friend_request = FriendRequest.find_by(requester_id: params[:friend][:user_second_id].to_i, requestee_id: current_user.id)
         if friend_request 
             @friend1 = Friend.new(friend_params) 

@@ -19,6 +19,7 @@ class FriendRequestAcceptDecline extends React.Component {
         const { currentUser, requesterId } = this.props;
         this.props.deleteFriendRequest(requesterId, currentUser.id);
     }
+    
 
     render() {
         const { currentUser, requesterId } = this.props;

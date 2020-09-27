@@ -3,17 +3,14 @@ class Api::FriendshipsController < ApplicationController
     def create 
         user_first_id, user_second_id = params[:friendship][:user_first_id].to_i, params[:friendship][:user_second_id].to_i 
         friend_request = FriendRequest.find_by(requester_id:  user_second_id, requestee_id: current_user.id)
-        # debugger
         if friend_request 
             @friendship1 = Friendship.new(friendship_params) 
-            # debugger 
             tmp = {"user_first_id": user_second_id, "user_second_id": user_first_id}
             @friendship2 = Friendship.new(tmp)
             if @friendship1.save && @friendship2.save   
                 friend_request.destroy 
                 @user1 = User.find_by(id: user_first_id)
                 @user2 = User.find_by(id: user_second_id)
-                # show current user 
                 render "api/users/show_both"
             else 
                 render json: @friend.errors.full_messages, status: 422

@@ -26,9 +26,10 @@ class NavBar extends React.Component {
                 {/* <button><i className="fas fa-bell fa-2x"></i></button> */}
                 <div className="dropdown">
                     <button className="dropbtn"><i className="arrow down"></i></button>
-                    <div className="dropdown-content">
+                    <div className="dropdown-content navbar-dropdown-content">
                         <a href="https://github.com/yinghuanchen"><i className="fab fa-github"></i> &nbsp;yinghuanchen</a>
                         <a href="https://www.linkedin.com/in/ying-huan-chen-790093119/"><i className="fab fa-linkedin"></i> &nbsp;Emily Chen</a>
+                        <a href="https://angel.co/u/emily-ying-huan-chen"><i className="fab fa-angellist"></i> &nbsp;Emily Chen</a>
                         <a className="logout-button" onClick={this.handleLogout}><i className="fas fa-sign-out-alt"></i>&nbsp;Log out</a>
                     </div>
                 </div>

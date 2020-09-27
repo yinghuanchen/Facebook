@@ -4,11 +4,13 @@ class CoverPhoto extends React.Component {
     constructor(props) {
         super(props); 
         const coverImgURL = this.props.user.coverPhoto ? this.props.user.coverPhoto : 'https://i.pinimg.com/originals/e1/c0/53/e1c053609dca3d22729aa385b03662a3.jpg'
-        this.state = { coverImg: null, coverImgURL, isModalOpen: false  }
+        this.state = { coverImg: null, coverImgURL: null, isModalOpen: false  }
         this.onOpenModal = this.onOpenModal.bind(this);
         this.onCloseModal = this.onCloseModal.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleFile = this.handleFile.bind(this);
+        this.coverPhotoUpload = React.createRef(); 
+        this.showCoverPhotoUpload = this.showCoverPhotoUpload.bind(this);
     }
 
     onOpenModal() {
@@ -19,15 +21,23 @@ class CoverPhoto extends React.Component {
         this.setState({ isModalOpen: false });
     };
 
+    showCoverPhotoUpload() {
+        this.coverPhotoUpload.current.click();
+
+    }
+
 
     handleFile(e) {
         const file = e.currentTarget.files[0];
         const fileReader = new FileReader();
-        fileReader.onloadend = () => {
+        fileReader.onloadend = (e) => {
+            e.preventDefault(); 
             this.setState({ coverImg: file, coverImgURL: fileReader.result });
         };
         if (file) {
             fileReader.readAsDataURL(file);
+        } else {
+            this.setState({ coverImg: null, coverImgURL: null });
         }
         this.setState({ isModalOpen: true });
     }
@@ -48,13 +58,15 @@ class CoverPhoto extends React.Component {
         
         const editButton = this.props.isEditable ? (
             <div className='edit-cover-photo-btn'>
-                        <input type="file" accept="image/*" id="input" onChange={this.handleFile} />
-                        <div className="img-input-label">
-                            <label className="image-upload-label" htmlFor="input"> 
+                <input type="file" accept="image/*" id="input" onChange={this.handleFile}/> 
+                 {/* ref={this.coverPhotoUpload} */}
+                <div className="img-input-label">
+                    {/* onClick={this.showCoverPhotoUpload} */}
+                    <label className="image-upload-label" htmlFor="input" > 
                                 <i className="fas fa-camera fa-lg"></i> 
                                 <div className="image-upload-label-text">&nbsp;Upload Cover Photo</div>
-                            </label>
-                        </div> 
+                    </label>
+                </div> 
             </div>  
         ) : null; 
         const isModalOpen = this.state.isModalOpen;

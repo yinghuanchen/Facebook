@@ -58,6 +58,7 @@ img {
 }
 .image-upload-label-text {
   display: none;
+  font-family: inherit;
 }
 .image-upload-label:hover .image-upload-label-text {
   display: inline-block;
@@ -131,11 +132,19 @@ img {
   flex-wrap: nowrap;
   width: 100px;
   top: 110px;
-  left: 50px;
+  left: 60px;
   z-index: 8;
   cursor: pointer;
 }
+.profile-picture-modal, .cover-photo-modal {
+  margin-left: 250px;
+  max-height: 600px;
+}
 
+.profile-picture-preview #img, .cover-photo-preview #img {
+  object-fit: scale-down;
+  height: 500px;
+}
 .profile-picture {
   z-index: 2;
   display: block;
@@ -247,7 +256,7 @@ img {
   margin-left: 15px;
 }
 .friend-list-container-name i {
-  color: #2851A3;
+  color: darkgray;
 }
 .friend-list-ul {
   display: flex;
@@ -283,4 +292,82 @@ img {
   text-align: center;
 }
 
+.user-profile-information {
+  display: none;
+  margin-top:50px;
+  width: 850px;
+  border-radius: 2px 2px 0 0;
+  border: 1px solid darkgray;
+}
 
+.user-profile-information-header {
+  font-size: 30px;
+  background: #f5f6f7;
+  border-bottom: 1px solid #d3d6db;
+  margin-bottom: 15px;
+  padding: 5px 30px;
+}
+
+.user-profile-information-header span {
+  color: black;
+  font-weight: bolder;
+}
+.user-profile-information-header i {
+  color: darkgray;
+}
+
+.user-profile-information-body {
+  padding: 5px 30px; 
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #4b4f56	;
+}
+.user-profile-information-body li {
+  margin: 5px 0px; 
+}
+
+.user-friends-information {
+  display: none;
+  margin-top:20px;
+  margin-bottom:70px;
+  width: 850px;
+  border-radius: 2px 2px 0 0;
+  border: 1px solid darkgray;
+  min-height: 60vh;
+}
+
+.user-profile-information-body {
+  padding: 5px 30px; 
+  margin-bottom: 10px;
+  font-size: 20px; 
+}
+
+.user-profile-friend-information-body {
+   padding: 5px 30px; 
+   display: flex; 
+   flex-wrap: wrap;
+}
+.user-profile-friend-item {
+  display: flex; 
+  justify-content: flex-start;
+  align-items: center;
+  width: 390px; 
+}
+
+.user-profile-friend-item-img {
+  margin-right: 20px;
+}
+
+
+.user-profile-friend-item a {
+  font-size: 20px; 
+  color:#4b4f56;
+}
+.space {
+  height: 30px;
+}
+
+.small-space {
+  height: 12px;
+}

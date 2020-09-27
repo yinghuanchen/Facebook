@@ -26,6 +26,8 @@ class CommentIndex extends React.Component {
                             authorId={this.props.authors[idx].id}
                             authorName={this.props.authors[idx].username} 
                             authorProfilePic={this.props.authors[idx].profilePicture} 
+                            updateComment={this.props.updateComment} 
+                            fetchComment={this.props.fetchComment}
                             deleteComment={this.props.deleteComment} 
                             fetchPost={this.props.fetchPost} 
                             postId = {this.props.post.id}

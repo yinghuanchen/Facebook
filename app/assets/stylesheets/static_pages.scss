@@ -1,3 +1,60 @@
 // Place all the styles related to the static_pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.footer {
+    display: flex;
+    box-sizing: border-box;
+    margin-top: 30px;
+    background:#ffffff;
+    height: 90px;
+     width: 100%;
+     min-width:1100px;
+    margin-bottom: 0;
+    // position: absolute;
+    // bottom: 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    min-width:2500px;
+    padding-top: 10px;
+    padding-left: 100px;
+    margin: 0 auto;
+    display: block;
+    background-color: #2851A3;
+}
+
+.footer-content > p {
+    font-size: 11px;
+    color: grey;
+    margin: 15px 0px 15px 0px;
+}
+
+.footer-link {
+    padding: 8px 0 0;
+    font-size: 12px;
+    margin: 0;
+    display: flex;
+    justify-content: flex-start;
+    color: white;
+    width: 100%;
+}
+
+
+.footer-link > li > a {
+    margin: 0px 10px 0px 3px;
+    color: white;
+}
+
+.footer-link a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.footer-link-list > li:first-child {
+    padding: 0;
+}

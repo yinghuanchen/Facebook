@@ -4,7 +4,7 @@ import { ThemeProvider } from 'react-bootstrap';
 class SearchBar extends React.Component { 
     constructor(props) {
         super(props); 
-        this.state = {searchInput: '', isDropDownOpen: false};
+        this.state = {searchInput: '', isDropDownOpen: false, searchResults: this.props.users};
         this.handleUpdate = this.handleUpdate.bind(this); 
         this.handleClick = this.handleClick.bind(this); 
         this.toggleMenu = this.toggleMenu.bind(this);
@@ -12,12 +12,17 @@ class SearchBar extends React.Component {
     handleUpdate(e) {
         const inputStr = e.currentTarget.value;
         this.setState({ searchInput: inputStr}); 
-        this.props.searchUsers(inputStr.trim()); 
+        // client side filter 
+        const searchResults = this.props.users.filter((user) => {
+           return user.username.toLowerCase().includes(inputStr.trim().toLowerCase());
+        }); 
+        this.setState({ searchResults }); 
         if (inputStr && !this.state.isDropDownOpen) {
             this.setState({ isDropDownOpen: true}); 
         } else if (!inputStr && this.state.isDropDownOpen) {
             this.setState({ isDropDownOpen: false });
         }
+
     }
 
     handleClick(e) {
@@ -40,10 +45,10 @@ class SearchBar extends React.Component {
     }
 
     render () {
-        const dropDownContent = this.state.isDropDownOpen && this.props.searchResults ? (
+        const dropDownContent = this.state.isDropDownOpen && this.state.searchResults ? (
             <div id="search-bar-drop-down" >
                 <ul>
-                    {this.props.searchResults.map((user, idx) => 
+                    {this.state.searchResults.map((user, idx) => 
                         <li key={idx} className="search-bar-item">
                             <div className="search-bar-img-container">
                                 <Link to={`/users/${user.id}`}><img src={user.profilePicture} alt="" id="img" className="img" /></Link>

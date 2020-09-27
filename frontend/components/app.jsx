@@ -7,15 +7,17 @@ import NewsFeedContainer from './newsfeed/newsfeed_container';
 import NavBarContainer from './navbar/navbar_container';
 import UserIndexContainer from './user/user_index_container';
 import SearchResultContainer from './search_result/search_result_container';
+import Footer from './footer/footer'; 
 
 const App = () => (
     <div className="app-container">
         <Route path="/" component={NavBarContainer} /> 
-        <ProtectedRoute exact path="/index" component={UserIndexContainer} /> 
+        {/* <ProtectedRoute exact path="/index" component={UserIndexContainer} />  */}
         <AuthRoute exact path="/" component={LogInFormContainer} />
         <ProtectedRoute exact path="/users/:userId" component={UserShowContainer} />
         <ProtectedRoute exact path="/newsfeed" component={NewsFeedContainer} />
-        <ProtectedRoute path="/search" component={SearchResultContainer}/>
+        <ProtectedRoute path="/search" component={SearchResultContainer}/> 
+        <Route path="/" component={Footer} /> 
     </div>
 );
 

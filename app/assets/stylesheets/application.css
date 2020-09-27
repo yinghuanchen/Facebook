@@ -31,7 +31,7 @@
   box-sizing: border-box; 
   border: none;
   position: static;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   height: 50px;
   width: 100%;
   background: #2851A3;
@@ -42,7 +42,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 5;
+  z-index: 100;
   /* opacity: 1; */
   /* position: fixed; */
 }
@@ -82,33 +82,40 @@
   padding: 17px;
   border: none;
   cursor: pointer;
+  left: 1000px;
 }
 .friend-dropdown{
   z-index: 6;
-}
+ }
+
 .friend-button {
   font-family: inherit;
-  border-color: rgba(0, 0, 0, .4);
   background-color: #f5f6f7;
   display: inline-block;
-  border: #4b4f56;;
-  padding: 12px; 
-   z-index: 6;
+  border: rgba(0, 0, 0, .4);
+  padding: 5px 15px; 
+
   position: relative;
   left: 600px;
   top: -40px;
-  border-radius: 5px;
+  border-radius: 1px;
   cursor: pointer;
+  color: #4b4f56;
+  font-size: 15px; 
 }
 .friend-drop-down-content {
   font-family: inherit;
   left: 600px;
-  top:0px;
-  border-radius: 5px;
+  top:-12px;
+  border-radius: 2px;
   width: 70px;
+  padding: 5px 0px; 
+  font-size: 15px;
+  color: #4b4f56;
 }
 .friend-drop-down-a {
   padding-left: 20px;
+  color: #4b4f56;
 }
 /* .friend-notice-dropbtn .fa-user-friends:hover {
   color: #231bff;
@@ -122,9 +129,7 @@
   position: relative;
   display: inline-block;
 }
-.friend-dropdown {
-  
-}
+
 /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
   display: none;
@@ -136,6 +141,7 @@
   box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.2);
   right: 0;
 }
+
 
 /* Links inside the dropdown */
 .dropdown-content a {
@@ -189,6 +195,8 @@
 
 .friend-notice-dropbtn {
   height: 50px;
+  /* position: fixed; 
+  left: 900px; */
 }
 
 
