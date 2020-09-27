@@ -3006,7 +3006,7 @@ var LogInForm = /*#__PURE__*/function (_React$Component) {
 
       e.preventDefault();
       this.props.login({
-        'email': 'demo@email',
+        'email': 'chris@appacademy.com',
         'password': '123456'
       }).then(function () {
         return _this3.props.history.push('/newsfeed');

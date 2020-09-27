@@ -38,7 +38,7 @@ class LogInForm extends React.Component {
 
     handleDemoUser(e) {
         e.preventDefault();
-        this.props.login({'email':'demo@email', 'password':'123456'}).then(() => this.props.history.push('/newsfeed'));
+        this.props.login({ 'email':'chris@appacademy.com', 'password':'123456'}).then(() => this.props.history.push('/newsfeed'));
     }
 
     renderErrors() {
