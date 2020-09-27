@@ -201,9 +201,7 @@ textarea[class*='post-form-text'] {
   object-fit: scale-down;
 }
 
-.liker-modal {
-  width: 300px;
-}
+
 
 .liker-item {
   display: flex; 
@@ -229,8 +227,8 @@ textarea[class*='post-form-text'] {
 }
 
 .liker-modal {
-  height: 400px;
-  width: 230px;
+  height: 450px;
+  width: 300px;
 }
 
 .post-index-item-wall-information {
@@ -321,6 +319,7 @@ textarea[class*='post-form-text'] {
   top: -13px;
 }
 
-.likers-container {
+.likers-container { 
+  height: 400px;
   overflow: auto;
 }
