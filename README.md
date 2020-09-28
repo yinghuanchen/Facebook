@@ -1,7 +1,6 @@
-# README
+# Facebook 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+My [Facebook](https://yinghuanchen-facebook.herokuapp.com/#/) is a web application that allows users to make friends with other users. It's a clone of the popular social media app [Facebook](https://www.facebook.com/). 
 
 Things you may want to cover:
 
