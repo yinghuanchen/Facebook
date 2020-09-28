@@ -103,3 +103,14 @@ My [Facebook](https://yinghuanchen-facebook.herokuapp.com/#/) is a web applicati
         end
     end
   ```
+  
+  At the front-end, the friend button has four conditions: 
+   1. The user has no relationship with the current user 
+   2. The user is current user's requester 
+   3. The user is current user's requestee
+   4. The user is current user's friend 
+  
+  I seperated them into three containers: 
+   1. FriendRequestContainer: Handle 1 ans 2 conditions. If 
+  
+  
