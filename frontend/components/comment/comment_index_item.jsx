@@ -79,11 +79,7 @@ class CommentIndexItem extends React.Component {
           </button>
         </div>
       </div>
-    ) : (
-      <button className="delete-comment-btn">
-        <i className="fas fa-ellipsis-h"></i>
-      </button>
-    );
+    ) : null;
     if(this.state.isEditFormShow) { 
         // document.getElementById(`edit-${this.comment.id}`).height = this.state.height;
     }
