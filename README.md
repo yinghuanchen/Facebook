@@ -76,15 +76,24 @@ My [Facebook](https://yinghuanchen-facebook.herokuapp.com/#/) is a web applicati
   ```ruby
      def create 
         user_first_id, user_second_id = params[:friendship][:user_first_id].to_i, params[:friendship][:user_second_id].to_i 
+        
+        // The only way that two users become friends is that the current user accept a friend request from other users. 
+        // First check whether a friend request between the two users exists.
         friend_request = FriendRequest.find_by(requester_id:  user_second_id, requestee_id: current_user.id)
+        
         if friend_request 
+        
+            // Create two friendship instance with opposite order. 
             @friendship1 = Friendship.new(friendship_params) 
             tmp = {"user_first_id": user_second_id, "user_second_id": user_first_id}
             @friendship2 = Friendship.new(tmp)
+            
             if @friendship1.save && @friendship2.save   
+                // When creating a friendship, destroy the friend request between the two users  
                 friend_request.destroy 
                 @user1 = User.find_by(id: user_first_id)
                 @user2 = User.find_by(id: user_second_id)
+                // update both users 
                 render "api/users/show_both"
             else 
                 render json: @friend.errors.full_messages, status: 422
