@@ -247,3 +247,5 @@ My [Facebook](https://yinghuanchen-facebook.herokuapp.com/#/) is a web applicati
   }
   ```
   
+  ## Design Documents 
+  [Design Documents](https://github.com/yinghuanchen/Facebook/wiki)
