@@ -113,7 +113,7 @@ My [Facebook](https://yinghuanchen-facebook.herokuapp.com/#/) is a web applicati
   I seperated them into three containers: 
    1. FriendRequestContainer: Handle 1 and 2-conditions. If it's in 1-condition, show Add Friend button, which allows current user to send a friend request. If it's in 2-condition, show Request Sent button with Delete Friend Request dropdown, which allows current user to cancel a friend request. 
    
-   ```
+   ```javascript
     
    class FriendRequest extends React.Component {
        constructor(props) {
@@ -169,7 +169,7 @@ My [Facebook](https://yinghuanchen-facebook.herokuapp.com/#/) is a web applicati
    
    2. FriendRequestAcceptDeclineContainer: Handle 3-condition. Show Respond Friend Request button with Confirm and Delete dropdown, which allows user to accept or decline a friend request. 
    
-   ```
+   ```javascript
    class FriendRequestAcceptDecline extends React.Component {
       constructor(props) {
           super(props);
@@ -213,7 +213,7 @@ My [Facebook](https://yinghuanchen-facebook.herokuapp.com/#/) is a web applicati
    
    3. FriendContainer: Handle 4-condition. Shoe Friend button and an Unfriend dropdown, which allows user to delete an existing friend. 
   
-  ```
+  ```javascript
   class Friend extends React.Component {
         constructor(props) {
             super(props);
