@@ -111,6 +111,145 @@ My [Facebook](https://yinghuanchen-facebook.herokuapp.com/#/) is a web applicati
    4. The user is current user's friend 
   
   I seperated them into three containers: 
-   1. FriendRequestContainer: Handle 1 ans 2 conditions. If 
+   1. FriendRequestContainer: Handle 1 and 2-conditions. If it's in 1-condition, show Add Friend button, which allows current user to send a friend request. If it's in 2-condition, show Request Sent button with Delete Friend Request dropdown, which allows current user to cancel a friend request. 
+   
+   ```
+    
+   class FriendRequest extends React.Component {
+       constructor(props) {
+           super(props); 
+           this.state = {
+               requestSend: this.props.requestSend,
+           }
+           this.handleSendFriendRequest = this.handleSendFriendRequest.bind(this);
+           this.handleDeleteFriendRequest = this.handleDeleteFriendRequest.bind(this);
+       }
+
+
+       handleSendFriendRequest(e) {
+           e.preventDefault(); 
+           this.props.sendFriendRequest(this.props.requesteeId);  
+           this.setState({ requestSend: !this.state.requestSend });
+       }
+
+       handleDeleteFriendRequest(e) {
+           e.preventDefault(); 
+           this.props.deleteFriendRequest(this.props.currentUser.id, this.props.requesteeId); 
+           this.setState({ requestSend: !this.state.requestSend });
+       }
+       
+       render() {
+           const { currentUser, requesteeId } = this.props;
+           const btn = this.state.requestSend ? (
+               <div className="dropdown friend-dropdown">
+                   <button className="dropbtn friend-button"><i className="fas fa-share-square"></i>&nbsp;Friend Request Sent</button>
+                   <div className="dropdown-content friend-drop-down-content">
+                       <button className="friend-drop-down-a" onClick={this.handleDeleteFriendRequest}>Delete Friend Request</button >
+                   </div>
+               </div>
+
+           ) : 
+               (
+               <button className="friend-button" onClick={this.handleSendFriendRequest}><i className="fas fa-user-plus">
+               </i>&nbsp;Add Friend</button >
+           );
+           if (currentUser.friendIds.includes(requesteeId) || currentUser.requesterIds.includes(requesteeId)) {
+               return null; 
+           } else {
+               return (
+                  <>
+                   {btn}
+                  </>
+               )
+           }
+       }
+   }
+   ```
+
+   
+   2. FriendRequestAcceptDeclineContainer: Handle 3-condition. Show Respond Friend Request button with Confirm and Delete dropdown, which allows user to accept or decline a friend request. 
+   
+   ```
+   class FriendRequestAcceptDecline extends React.Component {
+      constructor(props) {
+          super(props);
+          this.handleAddFriendship = this.handleAddFriendship.bind(this);
+          this.handleDeleteFriendRequest = this.handleDeleteFriendRequest.bind(this);
+      }
+
+      handleAddFriendship(e) {
+          e.preventDefault();
+          const { currentUser, requesterId } = this.props;
+          const friendship = { user_first_id: currentUser.id, user_second_id: requesterId };
+          this.props.addFriendship(friendship);
+      }
+
+      handleDeleteFriendRequest(e) {
+          e.preventDefault();
+          const { currentUser, requesterId } = this.props;
+          this.props.deleteFriendRequest(requesterId, currentUser.id);
+      }
+
+
+      render() {
+          const { currentUser, requesterId } = this.props;
+          if (currentUser.requesterIds.includes(requesterId)) {
+              return (
+                  <div className="dropdown friend-dropdown">
+                      <button className="dropbtn friend-button"><i className="fas fa-user-plus"></i>&nbsp;Respond to Friend Request</button>
+                      <div className="dropdown-content friend-drop-down-content">
+                          <button className="friend-drop-down-a" onClick={this.handleAddFriendship}>Confirm</button >
+                          <br/>
+                          <button className="friend-drop-down-a" onClick={this.handleDeleteFriendRequest}>Delete</button >
+                      </div>
+                  </div>
+              )
+          } else {
+              return null;
+          }
+      }
+   }
+   ```
+   
+   3. FriendContainer: Handle 4-condition. Shoe Friend button and an Unfriend dropdown, which allows user to delete an existing friend. 
   
+  ```
+  class Friend extends React.Component {
+        constructor(props) {
+            super(props);
+            this.handleDeleteFriendship = this.handleDeleteFriendship.bind(this);
+        }
+
+        handleDeleteFriendship(e) {
+            e.preventDefault();
+            const { currentUser, friendId } = this.props;
+            const friendship = { user_first_id: currentUser.id, user_second_id: friendId };
+            this.props.deleteFriendship(friendship);   
+        }
+
+        // componentDidUpdate(prevProps) {
+        //     if (this.props.friendId !== prevProps.friendId) {
+        //         this.props.fetchUser(this.props.friendId);
+        //     }
+        // }
+
+        render() {
+            const { currentUser, friendId } = this.props;
+
+            if (currentUser.friendIds.includes(friendId)) {
+              return (
+                  <div className="dropdown friend-dropdown">
+                      <button className="dropbtn friend-button"><i className="fas fa-check"></i>&nbsp;&nbsp;&nbsp;Friend&nbsp;&nbsp;&nbsp;<i className="fas fa-caret-down"></i></button>
+                      <div className="dropdown-content friend-drop-down-content">
+                          <button className="friend-drop-down-a" onClick={this.handleDeleteFriendship}>Unfriend</button >
+                      </div>
+                  </div>
+              )
+
+            } else {
+               return null; 
+            }
+        }
+  }
+  ```
   
