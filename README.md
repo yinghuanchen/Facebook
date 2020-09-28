@@ -22,9 +22,11 @@ My [Facebook](https://yinghuanchen-facebook.herokuapp.com/#/) is a web applicati
 1. Search for a user and send/cancel friend request 
 
 ![friend_request](https://user-images.githubusercontent.com/65005487/94422432-a98b7a80-01b9-11eb-82d9-932f28086b3b.gif)
+
 2. Accept/Decline a friend request 
 
 ![accept_friend_request](https://user-images.githubusercontent.com/65005487/94421853-c70c1480-01b8-11eb-8670-69fdadbef3e0.gif)
+
 3. Remove a friend 
 
 ![unfriend](https://user-images.githubusercontent.com/65005487/94421897-d723f400-01b8-11eb-9700-047ec737eace.gif)
