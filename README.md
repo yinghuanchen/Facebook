@@ -227,12 +227,6 @@ My [Facebook](https://yinghuanchen-facebook.herokuapp.com/#/) is a web applicati
             this.props.deleteFriendship(friendship);   
         }
 
-        // componentDidUpdate(prevProps) {
-        //     if (this.props.friendId !== prevProps.friendId) {
-        //         this.props.fetchUser(this.props.friendId);
-        //     }
-        // }
-
         render() {
             const { currentUser, friendId } = this.props;
 
